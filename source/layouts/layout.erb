@@ -11,6 +11,29 @@
     <%= javascript_include_tag "site" %>
   </head>
   <body>
-    <%= yield %>
+    <nav class="nav" tabindex="-1" onclick="this.focus()">
+      <div class="con">
+        <a class="pagename current" href="#">Roda Project</a>
+        <input class="menu-btn" type="checkbox" id="menu-btn" />
+        <label class="menu-icon" for="menu-btn"><span class="navicon"></span></label>
+        <ul class="menu">
+          <li><a href="#">One</a></li>
+          <li><a href="#">Two</a></li>
+          <li><a href="#">Three</a></li>
+        </ul>
+      </div>
+    </nav>
+    <div class="con">
+      <div class="r">
+        <div class="c3-m c12-s">
+          responsive sidebar
+        </div>
+        <div class="c9-m">
+          <div class="msg">oi</div>
+          <a class="btn btn-primary smooth">btn-sm</a>
+          <%= yield %>
+        </div>
+      </div>
+    </div>
   </body>
 </html>
