@@ -825,9 +825,11 @@ body {
     position: fixed;
     top: 0;
     left: 0;
-    height: 100%;
     transform: translateX(-100%); /* Off-canvas */
     z-index: 1001;
+    height: 100vh; /* Ensure it takes full viewport height */
+    overflow-y: auto; /* Enable vertical scrolling */
+    box-sizing: border-box; /* Include padding in height calculation */
   }
 
   .sidebar.is-open {
