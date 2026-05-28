@@ -754,3 +754,110 @@ body {
 }
 
 // ============== @RESPONSIVE SIDEBAR
+.sidebar-wrapper {
+  display: flex;
+  min-height: calc(100vh - 60px); /* Adjust based on your nav height */
+  position: relative;
+}
+
+.sidebar {
+  width: 250px; /* Default sidebar width */
+  background-color: #f8f8f8;
+  padding: 20px;
+  transition: transform 0.2s ease-in-out;
+  flex-shrink: 0; /* Prevent sidebar from shrinking */
+}
+
+.sidebar-menu h3 {
+  margin-top: 0;
+  margin-bottom: 15px;
+}
+
+.sidebar-menu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar-menu li a {
+  display: block;
+  padding: 10px 0;
+  color: #333;
+  text-decoration: none;
+}
+
+.sidebar-menu li a:hover {
+  background-color: #eee;
+}
+
+.sidebar-content {
+  flex-grow: 1;
+  padding: 20px;
+  transition: margin-left 0.2s ease-in-out;
+}
+
+.sidebar-toggle-button {
+  display: none; /* Hidden by default on desktop */
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index: 1001; /* Above content and overlay */
+}
+
+.sidebar-overlay {
+  display: none; /* Hidden by default */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+}
+
+/* Mobile styles (sidebar closed by default) */
+@media (max-width: 767px) { /* Adjust breakpoint as needed, e.g., 768px for typical tablet portrait */
+  .sidebar-wrapper {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    transform: translateX(-100%); /* Off-canvas */
+    z-index: 1001;
+  }
+
+  .sidebar.is-open {
+    transform: translateX(0);
+  }
+
+  .sidebar-content {
+    margin-left: 0;
+  }
+
+  .sidebar-toggle-button {
+    display: block; /* Show toggle button on mobile */
+  }
+
+  .sidebar-overlay.is-open {
+    display: block;
+  }
+}
+
+/* Desktop styles (sidebar open by default) */
+@media (min-width: 768px) {
+  .sidebar {
+    transform: translateX(0); /* Always visible on desktop */
+  }
+
+  .sidebar-content {
+    margin-left: 0; /* No margin needed as sidebar is part of flex layout */
+  }
+
+  .sidebar-toggle-button {
+    display: none; /* Hide toggle button on desktop */
+  }
+}

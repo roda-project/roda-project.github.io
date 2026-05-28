@@ -13,6 +13,11 @@
   <body>
     <nav class="nav" tabindex="-1" onclick="this.focus()">
       <div class="con">
+        <div class="sidebar-toggle-button">
+          <button id="sidebarToggle" class="menu-icon btn btn-l">
+            <span class="navicon"></span>
+          </button>
+        </div>
         <a class="pagename current" href="#">Roda Project</a>
         <input class="menu-btn" type="checkbox" id="menu-btn" />
         <label class="menu-icon" for="menu-btn"><span class="navicon"></span></label>
@@ -23,17 +28,34 @@
         </ul>
       </div>
     </nav>
-    <div class="con">
-      <div class="r">
-        <div class="c3-m c12-s">
-          responsive sidebar
+
+    <div class="sidebar-wrapper">
+
+      <aside id="sidebar" class="sidebar">
+        <div class="sidebar-menu">
+          <h3>Sidebar</h3>
+          <ul>
+            <li><a href="#">Sidebar Item 1</a></li>
+            <li><a href="#">Sidebar Item 2</a></li>
+            <li><a href="#">Sidebar Item 3</a></li>
+          </ul>
         </div>
-        <div class="c9-m">
-          <div class="msg">oi</div>
-          <a class="btn btn-primary smooth">btn-sm</a>
-          <%= yield %>
+      </aside>
+
+      <div id="sidebar-overlay" class="sidebar-overlay"></div>
+
+      <main id="sidebar-content" class="sidebar-content">
+        <div class="con">
+          <div class="r">
+            <div class="c12-m">
+              <div class="msg">oi</div>
+              <a class="btn btn-primary smooth">btn-sm</a>
+              <%= yield %>
+            </div>
+          </div>
         </div>
-      </div>
+      </main>
     </div>
+
   </body>
 </html>
