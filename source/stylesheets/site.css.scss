@@ -8,6 +8,7 @@ select {
   font-size: 16px;
   font-family: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
   margin: 0;
+  padding-top: 60px; /* Added to account for fixed navbar height */
 }
 .addon,
 .nav,
@@ -288,20 +289,16 @@ body {
   background: #000;
   color: #fff;
   padding: 11px 0 15px;
-  position: relative;
-  z-index: 1;
+  position: fixed; /* Changed from relative to fixed */
+  top: 0; /* Added */
+  width: 100%; /* Added */
+  z-index: 100; /* Increased z-index */
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
+  box-sizing: border-box;
 }
-
-//.nav .con {
-  //display: flex;
-  //justify-content: space-between;
-  //align-items: center;
-  //flex-wrap: wrap;
-//}
 
 .nav .pagename {
   font-size: 22px;
@@ -773,6 +770,10 @@ body {
   height: 100vh; /* Ensure it takes full viewport height */
   overflow-y: auto; /* Enable vertical scrolling */
   box-sizing: border-box; /* Include padding in height calculation */
+  position: fixed; /* Added for desktop */
+  top: 0; /* Added for desktop */
+  left: 0; /* Added for desktop */
+  z-index: 99; /* Added for desktop, slightly less than navbar */
 }
 
 .sidebar-menu h3 {
@@ -859,7 +860,7 @@ body {
   }
 
   .sidebar-content {
-    margin-left: 0; /* No margin needed as sidebar is part of flex layout */
+    margin-left: 250px; /* Added to account for fixed sidebar width */
   }
 
   .sidebar-toggle-button {
