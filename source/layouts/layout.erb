@@ -11,27 +11,24 @@
     <%= javascript_include_tag "site" %>
   </head>
   <body>
-    <nav class="nav" tabindex="-1" onclick="this.focus()">
-      <div class="con">
-        <div class="sidebar-toggle-button">
-          <button id="sidebarToggle" class="menu-icon btn btn-l">
-            <span class="navicon"></span>
-          </button>
-        </div>
-        <a class="pagename current" href="#">Roda Project</a>
-        <input class="menu-btn" type="checkbox" id="menu-btn" />
-        <label class="menu-icon" for="menu-btn"><span class="navicon"></span></label>
-        <ul class="menu">
-          <li><a href="#">One</a></li>
-          <li><a href="#">Two</a></li>
-          <li><a href="#">Three</a></li>
-        </ul>
+    <nav class="nav padding shadow" tabindex="-1" onclick="this.focus()">
+      <div class="sidebar-toggle-button">
+        <button id="sidebarToggle" class="menu-icon btn btn-l">
+          <span class="navicon"></span>
+        </button>
       </div>
+      <a class="pagename current" href="#">Roda Project</a>
+      <input class="menu-btn" type="checkbox" id="menu-btn" />
+      <label class="menu-icon" for="menu-btn"><span class="navicon"></span></label>
+      <ul class="menu">
+        <li><a href="#">One</a></li>
+        <li><a href="#">Two</a></li>
+        <li><a href="#">Three</a></li>
+      </ul>
     </nav>
 
     <div class="sidebar-wrapper">
-
-      <aside id="sidebar" class="sidebar">
+      <aside id="sidebar" class="sidebar padding shadow-s">
         <div class="sidebar-menu">
           <h3>Sidebar</h3>
           <ul>
@@ -68,7 +65,7 @@
 
       <div id="sidebar-overlay" class="sidebar-overlay"></div>
 
-      <main id="sidebar-content" class="sidebar-content">
+      <main id="sidebar-content" class="sidebar-content padding-s">
         <div class="con">
           <div class="r">
             <div class="c12-m">
