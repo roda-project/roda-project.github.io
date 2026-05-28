@@ -766,10 +766,13 @@ body {
 }
 
 .sidebar {
-  width: 225px; /* Default sidebar width */
+  width: 250px; /* Default sidebar width */
   background-color: #f8f8f8;
   transition: transform 0.2s ease-in-out;
   flex-shrink: 0; /* Prevent sidebar from shrinking */
+  height: 100vh; /* Ensure it takes full viewport height */
+  overflow-y: auto; /* Enable vertical scrolling */
+  box-sizing: border-box; /* Include padding in height calculation */
 }
 
 .sidebar-menu h3 {
@@ -830,9 +833,6 @@ body {
     left: 0;
     transform: translateX(-100%); /* Off-canvas */
     z-index: 1001;
-    height: 100vh; /* Ensure it takes full viewport height */
-    overflow-y: auto; /* Enable vertical scrolling */
-    box-sizing: border-box; /* Include padding in height calculation */
   }
 
   .sidebar.is-open {
