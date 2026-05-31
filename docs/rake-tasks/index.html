@@ -1,0 +1,218 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Use the title from a page's frontmatter if it has one -->
+    <title>Roda project - Rake tasks</title>
+    <link href="https://cdn.jsdelivr.net/npm/beercss@4.0.21/dist/cdn/beer.min.css" rel="stylesheet">
+    <script src="
+    https://cdn.jsdelivr.net/npm/@hotwired/turbo@8.0.23/dist/turbo.es2017-umd.min.js
+    "></script>
+    <script type="module" src="https://cdn.jsdelivr.net/npm/beercss@4.0.21/dist/cdn/beer.min.js"></script>
+    <script type="module" src="https://cdn.jsdelivr.net/npm/material-dynamic-colors@1.1.4/dist/cdn/material-dynamic-colors.min.js"></script>
+
+    <link href="/stylesheets/site.css" rel="stylesheet" />
+    <script src="/javascripts/site.js"></script>
+  </head>
+  <body class="dark">
+    <a href="https://github.com/roda-project/roda-project" class="github-sticky-link l m" target="_blank" rel="noopener noreferrer">
+      <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true">
+        <path fill="currentColor" d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.9-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.52 2.34 1.08 2.91.83.1-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.94 0-1.1.39-1.99 1.03-2.69-.1-.25-.45-1.27.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.37.2 2.39.1 2.64.64.7 1.03 1.6 1.03 2.69 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"></path>
+      </svg>
+    </a>
+
+      <nav class="left max l scroll">
+        <a href="/" >
+          <i>home</i>
+          <div>Home</div>
+        </a>
+        <a href="/project-structure" >
+          <i>folder_managed</i>
+          <div>Project Structure</div>
+        </a>
+        <a href="/rake-tasks" class='active'>
+          <i>terminal</i>
+          <div>Rake tasks</div>
+        </a>
+        <a href="https://roda.jeremyevans.net/documentation.html" target="_blank">
+          <i>link_2</i>
+          <div>Roda Docs</div>
+        </a>
+        <a href="https://sequel.jeremyevans.net/index.html" target="_blank">
+          <i>link_2</i>
+          <div>Sequel Docs</div>
+        </a>
+        <a href="https://rodauth.jeremyevans.net/documentation.html" target="_blank">
+          <i>link_2</i>
+          <div>Rodauth Docs</div>
+        </a>
+      </nav>
+      <nav class="left m scroll">
+        <a href="/" >
+          <i>home</i>
+          <div>Home</div>
+        </a>
+        <a href="/project-structure" >
+          <i>folder_managed</i>
+          <div>Project Structure</div>
+        </a>
+        <a href="/rake-tasks" class='active'>
+          <i>terminal</i>
+          <div>Rake tasks</div>
+        </a>
+        <a href="https://roda.jeremyevans.net/documentation.html" target="_blank">
+          <i>link_2</i>
+          <div>Roda Docs</div>
+        </a>
+        <a href="https://sequel.jeremyevans.net/index.html" target="_blank">
+          <i>link_2</i>
+          <div>Sequel Docs</div>
+        </a>
+        <a href="https://rodauth.jeremyevans.net/documentation.html" target="_blank">
+          <i>link_2</i>
+          <div>Rodauth Docs</div>
+        </a>
+      </nav>
+      <nav class="bottom s scroll">
+        <a href="/" >
+          <i>home</i>
+          <div>Home</div>
+        </a>
+        <a href="/project-structure" >
+          <i>folder_managed</i>
+          <div>Project Structure</div>
+        </a>
+        <a href="/rake-tasks" class='active'>
+          <i>terminal</i>
+          <div>Rake tasks</div>
+        </a>
+        <a href="https://roda.jeremyevans.net/documentation.html" target="_blank">
+          <i>link_2</i>
+          <div>Roda Docs</div>
+        </a>
+        <a href="https://sequel.jeremyevans.net/index.html" target="_blank">
+          <i>link_2</i>
+          <div>Sequel Docs</div>
+        </a>
+        <a href="https://rodauth.jeremyevans.net/documentation.html" target="_blank">
+          <i>link_2</i>
+          <div>Rodauth Docs</div>
+        </a>
+      </nav>
+
+    <main class="responsive">
+      <img src="/images/roda-project.png" style="width: 300px;"/>
+      <p>To get a quick overview of all available tasks, simply run <code>rake</code> or <code>rake -T</code> in your project’s root directory.</p>
+
+<h4 id="general-tasks">General Tasks</h4>
+
+<p>These tasks provide general utilities for interacting with your application and managing its codebase.</p>
+
+<ul>
+  <li>
+    <p><strong><code>$ rake</code></strong> (or <code>rake default</code>)
+This command serves as a convenient way to list all available Rake tasks along with their brief descriptions.</p>
+  </li>
+  <li>
+    <p><strong><code>$ rake console</code></strong> (alias: <code>rake c</code>)
+This task opens an <code>irb</code> console, pre-loading your application’s environment. This allows you to directly interact with your models, configurations, and other application components for debugging or quick data manipulation.</p>
+  </li>
+  <li>
+    <p><strong><code>$ rake lint</code></strong>
+To maintain code quality and consistency, this task runs <code>standardrb</code> to check your Ruby code for style and potential quality issues.</p>
+  </li>
+  <li>
+    <p><strong><code>$ rake lint:fix</code></strong>
+If <code>standardrb</code> identifies any style issues, this task will attempt to automatically fix them, helping you adhere to the project’s coding standards effortlessly.</p>
+  </li>
+  <li>
+    <p><strong><code>$ rake test</code></strong>
+This task executes your application’s RSpec test suite. It’s important to note that it sets the <code>RACK_ENV</code> to <code>test</code> before running the tests, ensuring a consistent testing environment.</p>
+  </li>
+</ul>
+
+<h4 id="database-tasks">Database Tasks</h4>
+
+<p>These tasks are essential for managing your application’s database schema.</p>
+
+<ul>
+  <li><strong><code>$ rake db:migrate</code></strong>
+This command is used to migrate your database schema to its latest version. You also have the flexibility to specify a target version if you need to roll back or forward to a particular database state.
+    <ul>
+      <li>To migrate to the latest version: <code>rake db:migrate</code>
+To migrate to a specific version (e.g., version 123): <code>rake db:migrate[123]</code></li>
+    </ul>
+  </li>
+</ul>
+
+<h4 id="server-tasks">Server Tasks</h4>
+
+<p>These tasks help you run your Roda application in different environments.</p>
+
+<ul>
+  <li>
+    <p><strong><code>$ rake dev</code></strong>
+This task starts the Puma web server in development mode on port 4000, making your application accessible for local development.</p>
+  </li>
+  <li>
+    <p><strong><code>$ rake dev:watch</code></strong>
+For a more dynamic development experience, this task starts the Puma web server in development mode and utilizes <code>guard</code> to watch for file changes. This setup automatically reloads the application or triggers other development tasks, such as LiveReload, as you make changes to your code.</p>
+  </li>
+  <li>
+    <p><strong><code>$ rake prod</code></strong>
+When you’re ready to deploy, this task starts the Puma web server in production mode on port 4000. It’s crucial to set the <code>DATABASE_URL</code> and <code>SESSION_SECRET</code> environment variables before running this task. Additionally, it leverages Ruby’s YJIT for enhanced performance in production.</p>
+    <ul>
+      <li><strong>Usage</strong>: <code>DATABASE_URL="postgres://user:pass@host:port/db" SESSION_SECRET="your_secret_key" rake prod</code></li>
+    </ul>
+  </li>
+</ul>
+
+<h4 id="asset-compilation-tasks">Asset Compilation Tasks</h4>
+
+<p>These tasks are dedicated to managing your frontend assets.</p>
+
+<ul>
+  <li>
+    <p><strong><code>$ rake assets</code></strong>
+This command first installs any necessary Node.js dependencies (if they aren’t already present) and then compiles your frontend assets, including JavaScript and CSS, using <code>esbuild</code>.</p>
+  </li>
+  <li>
+    <p><strong><code>$ rake assets:watch</code></strong>
+For continuous frontend development, this task installs Node.js dependencies and then starts <code>esbuild</code> in watch mode. This means your frontend assets will be automatically recompiled whenever changes are detected in your source files.</p>
+  </li>
+</ul>
+
+<h4 id="generation-tasks">Generation Tasks</h4>
+
+<p>These tasks provide convenient ways to scaffold new components for your application.</p>
+
+<ul>
+  <li><strong><code>$ rake g:migration[migration_name]</code></strong>
+This task generates a new, empty Sequel migration file within the <code>db/migrations/</code> directory. The file will be prefixed with a timestamp and named according to the <code>migration_name</code> you provide.
+    <ul>
+      <li><strong>Arguments</strong>: <code>migration_name</code> (e.g., <code>add_posts_table</code>) - A descriptive name for the migration.</li>
+      <li><strong>Usage</strong>: <code>rake g:migration[add_posts_table]</code></li>
+    </ul>
+  </li>
+  <li><strong><code>$ rake g:routes[branch_name,route1,method:route2,...]</code></strong>
+This powerful task generates a new Roda hash branch file in <code>app/routes/</code>, along with corresponding RSpec tests in <code>spec/app/routes/</code>. Optionally, it can also generate view files in <code>app/views/</code> for <code>GET</code> routes.
+    <ul>
+      <li><strong>Arguments</strong>:
+        <ul>
+          <li><code>branch_name</code> (e.g., <code>admin</code>, <code>api/v1</code>): This defines the name of the Roda branch and influences the generated file name and directory structure.</li>
+          <li><code>route1, method:route2,...</code>: A comma-separated list of routes. Routes can be simple names (which default to <code>GET</code>, e.g., <code>users</code>) or explicitly specified with an HTTP method (e.g., <code>posts:post</code>, <code>items:put</code>).</li>
+        </ul>
+      </li>
+      <li><strong>Usage</strong>:
+To generate a branch <code>foo</code> with a <code>GET /foo/bar</code> route: <code>rake g:routes[foo,bar]</code>
+To generate a branch <code>admin</code> with <code>GET /admin/users</code> and <code>POST /admin/products</code> routes: <code>rake g:routes[admin,users,products:post]</code></li>
+    </ul>
+  </li>
+</ul>
+
+    </main>
+  </body>
+</html>

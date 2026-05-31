@@ -6,12 +6,171 @@
     <meta name="viewport"
           content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Use the title from a page's frontmatter if it has one -->
-    <title>Welcome to Middleman</title>
+    <title>Roda project</title>
+    <link href="https://cdn.jsdelivr.net/npm/beercss@4.0.21/dist/cdn/beer.min.css" rel="stylesheet">
+    <script src="
+    https://cdn.jsdelivr.net/npm/@hotwired/turbo@8.0.23/dist/turbo.es2017-umd.min.js
+    "></script>
+    <script type="module" src="https://cdn.jsdelivr.net/npm/beercss@4.0.21/dist/cdn/beer.min.js"></script>
+    <script type="module" src="https://cdn.jsdelivr.net/npm/material-dynamic-colors@1.1.4/dist/cdn/material-dynamic-colors.min.js"></script>
+
     <link href="/stylesheets/site.css" rel="stylesheet" />
     <script src="/javascripts/site.js"></script>
   </head>
-  <body>
-    <img src="/images/roda-project.png" />
+  <body class="dark">
+    <a href="https://github.com/roda-project/roda-project" class="github-sticky-link l m" target="_blank" rel="noopener noreferrer">
+      <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true">
+        <path fill="currentColor" d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.9-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.52 2.34 1.08 2.91.83.1-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.94 0-1.1.39-1.99 1.03-2.69-.1-.25-.45-1.27.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.37.2 2.39.1 2.64.64.7 1.03 1.6 1.03 2.69 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"></path>
+      </svg>
+    </a>
 
+      <nav class="left max l scroll">
+        <a href="/" class='active'>
+          <i>home</i>
+          <div>Home</div>
+        </a>
+        <a href="/project-structure" >
+          <i>folder_managed</i>
+          <div>Project Structure</div>
+        </a>
+        <a href="/rake-tasks" >
+          <i>terminal</i>
+          <div>Rake tasks</div>
+        </a>
+        <a href="https://roda.jeremyevans.net/documentation.html" target="_blank">
+          <i>link_2</i>
+          <div>Roda Docs</div>
+        </a>
+        <a href="https://sequel.jeremyevans.net/index.html" target="_blank">
+          <i>link_2</i>
+          <div>Sequel Docs</div>
+        </a>
+        <a href="https://rodauth.jeremyevans.net/documentation.html" target="_blank">
+          <i>link_2</i>
+          <div>Rodauth Docs</div>
+        </a>
+      </nav>
+      <nav class="left m scroll">
+        <a href="/" class='active'>
+          <i>home</i>
+          <div>Home</div>
+        </a>
+        <a href="/project-structure" >
+          <i>folder_managed</i>
+          <div>Project Structure</div>
+        </a>
+        <a href="/rake-tasks" >
+          <i>terminal</i>
+          <div>Rake tasks</div>
+        </a>
+        <a href="https://roda.jeremyevans.net/documentation.html" target="_blank">
+          <i>link_2</i>
+          <div>Roda Docs</div>
+        </a>
+        <a href="https://sequel.jeremyevans.net/index.html" target="_blank">
+          <i>link_2</i>
+          <div>Sequel Docs</div>
+        </a>
+        <a href="https://rodauth.jeremyevans.net/documentation.html" target="_blank">
+          <i>link_2</i>
+          <div>Rodauth Docs</div>
+        </a>
+      </nav>
+      <nav class="bottom s scroll">
+        <a href="/" class='active'>
+          <i>home</i>
+          <div>Home</div>
+        </a>
+        <a href="/project-structure" >
+          <i>folder_managed</i>
+          <div>Project Structure</div>
+        </a>
+        <a href="/rake-tasks" >
+          <i>terminal</i>
+          <div>Rake tasks</div>
+        </a>
+        <a href="https://roda.jeremyevans.net/documentation.html" target="_blank">
+          <i>link_2</i>
+          <div>Roda Docs</div>
+        </a>
+        <a href="https://sequel.jeremyevans.net/index.html" target="_blank">
+          <i>link_2</i>
+          <div>Sequel Docs</div>
+        </a>
+        <a href="https://rodauth.jeremyevans.net/documentation.html" target="_blank">
+          <i>link_2</i>
+          <div>Rodauth Docs</div>
+        </a>
+      </nav>
+
+    <main class="responsive">
+      <img src="/images/roda-project.png" style="width: 300px;"/>
+      <p><a href="https://badge.fury.io/rb/roda-project"><img src="https://badge.fury.io/rb/roda-project.svg" alt="Gem Version" /></a>
+<a href="https://github.com/roda-project/roda-project/actions/workflows/main.yml"><img src="https://github.com/roda-project/roda-project/actions/workflows/main.yml/badge.svg" alt="CI" /></a>
+<a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/License-MIT-yellow.svg" alt="License: MIT" /></a></p>
+
+<p>Roda Project is a command-line interface (CLI) tool that helps you quickly scaffold new <a href="https://roda.jeremyevans.net/">Roda</a> web applications. It provides an interactive setup to generate a Roda project tailored to your specific needs, including choices for project type, database, authentication, and testing frameworks.</p>
+
+<h4 id="features">Features</h4>
+
+<ul>
+  <li><strong>Project Types</strong>: Generate fullstack web applications (with frontend assets) or API-only backends.</li>
+  <li><strong>Database Support (Sequel)</strong>: Integrate with SQLite, PostgreSQL, or MySQL, including basic connection configuration and migration setup.</li>
+  <li><strong>Authentication</strong>: Optionally include <a href="https://rodauth.jeremyevans.net/">Rodauth</a> for robust authentication features.</li>
+  <li><strong>Testing Frameworks</strong>: Choose between <a href="https://rspec.info/">RSpec</a> or <a href="https://minitest.github.io/">Minitest</a> for your testing environment.</li>
+  <li><strong>Frontend Tooling</strong>: For fullstack projects, includes basic frontend asset management with <code>esbuild</code>.</li>
+</ul>
+
+<p>Included in all: <strong>Live reload</strong>, <strong>Zeitwerk</strong>, and a bunch of usefull <strong>Rake tasks</strong></p>
+
+<h4 id="installation">Installation</h4>
+
+<p><code>$ gem install roda-project</code></p>
+
+<h4 id="usage">Usage</h4>
+
+<p>To create a new Roda project, simply run the <code>roda-project</code> command in your terminal:</p>
+
+<p><code>$ roda-project</code></p>
+
+<p>The CLI will then guide you through a series of interactive prompts to configure your new application:</p>
+
+<ol>
+  <li><strong>Project name</strong>: Enter the desired name for your project.</li>
+  <li><strong>Project type</strong>: Choose between <code>(1) Fullstack</code> (web application with frontend) or <code>(2) API</code> (backend only).</li>
+  <li><strong>Test framework</strong>: Select <code>(1) RSpec</code> or <code>(2) Minitest</code>.</li>
+  <li><strong>Database? (Y/n)</strong>: Decide if you want to include database support.
+    <ul>
+      <li>If <code>Y</code>:
+        <ul>
+          <li><strong>Database type</strong>: Choose <code>(1) SQLite</code>, <code>(2) PostgreSQL</code>, or <code>(3) MySQL</code>.</li>
+          <li><strong>Rodauth? (authentication) (Y/n)</strong>: Decide if you want to include Rodauth for authentication.</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ol>
+
+<p>After answering the prompts, <code>roda-project</code> will generate the project structure and files in a new directory with your specified project name.</p>
+
+<h4 id="development">Development</h4>
+
+<p>After checking out the repo, run <code>bin/setup</code> to install dependencies. Then, run <code>rake spec</code> to run the tests. You can also run <code>bin/console</code> for an interactive prompt that will allow you to experiment.</p>
+
+<p>To install this gem onto your local machine, run <code>bundle exec rake install</code>. To release a new version, update the version number in <code>version.rb</code>, and then run <code>bundle exec rake release</code>, which will create a git tag for the version, push git commits and the created tag, and push the <code>.gem</code> file to <a href="https://rubygems.org">rubygems.org</a>.</p>
+
+<h4 id="contributing">Contributing</h4>
+
+<p>Bug reports and pull requests are welcome on GitHub at <a href="https://github.com/roda-project/roda-project">https://github.com/roda-project/roda-project</a>. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the <a href="https://github.com/roda-project/roda-project/blob/main/CODE_OF_CONDUCT.md">code of conduct</a>.</p>
+
+<h4 id="license">License</h4>
+
+<p>The gem is available as open source under the terms of the <a href="https://opensource.org/licenses/MIT">MIT License</a>.</p>
+
+<h2 id="code-of-conduct">Code of Conduct</h2>
+
+<p>Everyone interacting in the Roda Project project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the <a href="https://github.com/roda-project/roda-project/blob/main/CODE_OF_CONDUCT.md">code of conduct</a>.</p>
+
+    </main>
   </body>
 </html>
