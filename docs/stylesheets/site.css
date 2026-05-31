@@ -1,6 +1,7 @@
 /* ========= General ========= */
 main {
-  border-left: 1px dotted #3f3f3f; }
+  border-left: 1px dotted #3f3f3f;
+  padding: 0.25em 1.25rem; }
 
 :root,
 body.light {
