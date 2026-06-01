@@ -1,7 +1,7 @@
 /* ========= General ========= */
 main {
   border-left: 1px dotted #3f3f3f;
-  padding: 1.25rem; }
+  padding: 0.80rem 1.25rem; }
 
 nav.left {
   padding-top: 1.25rem !important; }
