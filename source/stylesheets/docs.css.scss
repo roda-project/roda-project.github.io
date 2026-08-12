@@ -1,0 +1,324 @@
+/* ------------- RESPONSIVE SIDEBAR -------------- */
+/* --- 1. Variables & Reset (Ruby Dark Theme) --- */
+:root {
+  /* Black & Grey palette */
+  --bg-color: #0a0a0a;        /* Near-black main background */
+  --bg-secondary: #171717;    /* Dark grey sidebar background */
+  --text-primary: #ededed;    /* Bright off-white for reading */
+  --text-secondary: #a3a3a3;  /* Neutral grey for muted text */
+  --border-color: #2d2d2d;    /* Subtle grey borders */
+
+  /* Ruby Red accents */
+  --accent-color: #f43f3f;    /* Vibrant ruby/crimson */
+  --accent-bg: #000000;       /* Deep, dark red for active states */
+  --hover-bg: #262626;        /* Lighter grey for hover states */
+
+  /* Layout variables */
+  --sidebar-width: 280px;
+  --header-height: 60px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  color: var(--text-primary);
+  background-color: var(--bg-color);
+  line-height: 1.6;
+}
+
+a {
+  color: var(--accent-color);
+}
+
+/* --- 2. The Hidden Checkbox & Overlay --- */
+.menu-toggle-checkbox {
+  display: none;
+}
+
+.sidebar-overlay {
+  display: none;
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-color: rgba(0, 0, 0, 0.8); /* Very dark overlay */
+  z-index: 40;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  backdrop-filter: blur(2px);
+}
+
+/* --- 3. Mobile Header (Hidden on Desktop) --- */
+.mobile-header {
+  display: none;
+  height: var(--header-height);
+  background-color: var(--bg-secondary);
+  border-bottom: 1px solid var(--border-color);
+  padding: 0 1rem;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 30;
+}
+
+.mobile-title {
+  font-weight: 600;
+  font-size: 1.1rem;
+  margin-left: 1rem;
+}
+
+/* Hamburger Icon Animation */
+.hamburger {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 24px;
+  height: 18px;
+  cursor: pointer;
+}
+
+.hamburger span {
+  display: block;
+  height: 2px;
+  width: 100%;
+  background-color: var(--text-primary);
+  border-radius: 2px;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* --- 4. Main Layout --- */
+.layout-wrapper {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* --- 5. Sidebar Styling --- */
+.sidebar {
+  width: var(--sidebar-width);
+  background-color: var(--bg-secondary);
+  border-right: 1px solid var(--border-color);
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  overflow-y: auto;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Customizing scrollbar for the grey/black theme */
+.sidebar::-webkit-scrollbar {
+  width: 6px;
+}
+.sidebar::-webkit-scrollbar-track {
+  background: var(--bg-secondary);
+}
+.sidebar::-webkit-scrollbar-thumb {
+  background: var(--border-color);
+  border-radius: 3px;
+}
+
+.sidebar-header {
+  padding: 1.5rem 1.5rem 1rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.sidebar-header h2 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--accent-color); /* Add a pop of ruby to the header */
+}
+
+.sidebar-header p {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; /* Monospace version number */
+  margin-top: 0.25rem;
+}
+
+.sidebar-content {
+  padding: 1.5rem 0;
+}
+
+/* Documentation Sections */
+.menu-sections {
+  list-style: none;
+}
+
+.menu-section {
+  margin-bottom: 1.5rem;
+}
+
+.section-title {
+  display: block;
+  padding: 0 1.5rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-secondary);
+  margin-bottom: 0.5rem;
+}
+
+.section-items {
+  list-style: none;
+}
+
+.section-items a {
+  display: block;
+  padding: 0.4rem 1.5rem;
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.section-items a:hover {
+  background-color: var(--hover-bg);
+  color: var(--text-primary);
+}
+
+.section-items a.active {
+  color: var(--accent-color);
+  background-color: var(--accent-bg);
+  border-right: 3px solid var(--accent-color);
+  font-weight: 500;
+}
+
+/* --- 6. Content Area --- */
+.main-content {
+  flex-grow: 1;
+  padding: 2rem 3rem;
+  min-width: 0;
+}
+
+.content-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.content-container h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: var(--text-primary);
+}
+
+.content-container h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: var(--text-primary);
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 0.5rem;
+}
+
+.content-container p {
+  margin-bottom: 1rem;
+  color: var(--text-secondary);
+}
+
+/* --- 7. Mobile Media Query --- */
+@media (max-width: 768px) {
+  .mobile-header {
+    display: flex;
+  }
+
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 50;
+    transform: translateX(-100%);
+  }
+
+  .main-content {
+    padding: 1.5rem;
+  }
+
+  /* When the checkbox is checked, slide the sidebar in */
+  .menu-toggle-checkbox:checked ~ .layout-wrapper .sidebar {
+    transform: translateX(0);
+  }
+
+  /* When checked, show the overlay */
+  .menu-toggle-checkbox:checked ~ .sidebar-overlay {
+    display: block;
+    opacity: 1;
+  }
+
+  /* Animate the hamburger into an 'X' when checked */
+  .menu-toggle-checkbox:checked ~ .mobile-header .hamburger span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+    background-color: var(--accent-color); /* Turn X red on open */
+  }
+  .menu-toggle-checkbox:checked ~ .mobile-header .hamburger span:nth-child(2) {
+    opacity: 0;
+  }
+  .menu-toggle-checkbox:checked ~ .mobile-header .hamburger span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+    background-color: var(--accent-color);
+  }
+}
+
+/* ------------- Github Sticky Link ------------- */
+
+.sticky-link.right {
+  /* Positioning */
+  position: fixed;
+  top: 0.7em;
+  right: 20px;
+  z-index: 9999;
+}
+
+.sticky-link.left {
+  /* Positioning */
+  position: fixed;
+  top: 0.7em;
+  right: 20px;
+  z-index: 9999;
+}
+
+.sticky-link {
+  /* Layout & Alignment */
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+
+  /* Aesthetics */
+  background-color: #24292e;
+  color: #ffffff;
+  padding: 10px 16px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+
+  /* Smooth hover transition */
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+/* Hover effects */
+.sticky-link:hover {
+  background-color: #1f2327;
+  transform: translateY(-2px);
+}
+
+/* Active press effect */
+.sticky-link:active {
+  transform: translateY(0);
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}

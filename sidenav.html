@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Project Documentation</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+:root {
+  --bg-color: #ffffff;
+  --bg-secondary: #f8f9fa;
+  --text-primary: #1f2937;
+  --text-secondary: #6b7280;
+  --border-color: #e5e7eb;
+  --accent-color: #3b82f6;
+  --accent-bg: #eff6ff;
+  --sidebar-width: 280px;
+  --header-height: 60px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  color: var(--text-primary);
+  background-color: var(--bg-color);
+  line-height: 1.6;
+}
+
+.menu-toggle-checkbox {
+  display: none;
+}
+
+.sidebar-overlay {
+  display: none;
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 40;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  backdrop-filter: blur(2px);
+}
+
+.mobile-header {
+  display: none;
+  height: var(--header-height);
+  background-color: var(--bg-color);
+  border-bottom: 1px solid var(--border-color);
+  padding: 0 1rem;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 30;
+}
+
+.mobile-title {
+  font-weight: 600;
+  font-size: 1.1rem;
+  margin-left: 1rem;
+}
+
+.hamburger {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 24px;
+  height: 18px;
+  cursor: pointer;
+}
+
+.hamburger span {
+  display: block;
+  height: 2px;
+  width: 100%;
+  background-color: var(--text-primary);
+  border-radius: 2px;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.layout-wrapper {
+  display: flex;
+  min-height: 100vh;
+}
+
+.sidebar {
+  width: var(--sidebar-width);
+  background-color: var(--bg-secondary);
+  border-right: 1px solid var(--border-color);
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  overflow-y: auto;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.sidebar-header {
+  padding: 1.5rem 1.5rem 1rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.sidebar-header h2 {
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.sidebar-header p {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+.sidebar-content {
+  padding: 1.5rem 0;
+}
+
+/* Documentation Sections */
+.menu-sections {
+  list-style: none;
+}
+
+.menu-section {
+  margin-bottom: 1.5rem;
+}
+
+.section-title {
+  display: block;
+  padding: 0 1.5rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-secondary);
+  margin-bottom: 0.5rem;
+}
+
+.section-items {
+  list-style: none;
+}
+
+.section-items a {
+  display: block;
+  padding: 0.4rem 1.5rem;
+  color: var(--text-primary);
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.section-items a:hover {
+  background-color: var(--border-color);
+}
+
+.section-items a.active {
+  color: var(--accent-color);
+  background-color: var(--accent-bg);
+  border-right: 3px solid var(--accent-color);
+  font-weight: 500;
+}
+
+.main-content {
+  flex-grow: 1;
+  padding: 2rem 3rem;
+  min-width: 0;
+}
+
+.content-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.content-container h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.content-container h2 {
+  font-size: 1.5rem;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+.content-container p {
+  margin-bottom: 1rem;
+  color: var(--text-primary);
+}
+
+@media (max-width: 768px) {
+  .mobile-header {
+    display: flex;
+  }
+
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 50;
+    transform: translateX(-100%);
+  }
+
+  .main-content {
+    padding: 1.5rem;
+  }
+
+  .menu-toggle-checkbox:checked ~ .layout-wrapper .sidebar {
+    transform: translateX(0);
+  }
+
+  .menu-toggle-checkbox:checked ~ .sidebar-overlay {
+    display: block;
+    opacity: 1;
+  }
+
+  .menu-toggle-checkbox:checked ~ .mobile-header .hamburger span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+  .menu-toggle-checkbox:checked ~ .mobile-header .hamburger span:nth-child(2) {
+    opacity: 0;
+  }
+  .menu-toggle-checkbox:checked ~ .mobile-header .hamburger span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+}
+  </style>
+</head>
+<body>
+  <input type="checkbox" id="menu-toggle" class="menu-toggle-checkbox">
+  <label for="menu-toggle" class="sidebar-overlay"></label>
+  <header class="mobile-header">
+    <label for="menu-toggle" class="hamburger" aria-label="Toggle menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </label>
+    <div class="mobile-title">Project Docs</div>
+  </header>
+
+  <div class="layout-wrapper">
+    <nav class="sidebar">
+      <div class="sidebar-header">
+        <h2>Project Docs</h2>
+        <p>v2.0.4</p>
+      </div>
+
+      <div class="sidebar-content">
+        <ul class="menu-sections">
+          <li class="menu-section">
+            <span class="section-title">Getting Started</span>
+            <ul class="section-items">
+              <li><a href="#" class="active">Introduction</a></li>
+              <li><a href="#">Installation</a></li>
+              <li><a href="#">Configuration</a></li>
+            </ul>
+          </li>
+
+          <li class="menu-section">
+            <span class="section-title">Core Concepts</span>
+            <ul class="section-items">
+              <li><a href="#">Architecture</a></li>
+              <li><a href="#">Routing</a></li>
+              <li><a href="#">State Management</a></li>
+            </ul>
+          </li>
+
+          <li class="menu-section">
+            <span class="section-title">API Reference</span>
+            <ul class="section-items">
+              <li><a href="#">Endpoints</a></li>
+              <li><a href="#">Authentication</a></li>
+              <li><a href="#">Rate Limits</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <main class="main-content">
+      <div class="content-container">
+        <h1>Introduction</h1>
+        <p>Welcome to the project documentation. This layout is built entirely with HTML and CSS, utilizing modern CSS features like Grid, Flexbox, and CSS Variables.</p>
+
+        <h2>Why zero JavaScript?</h2>
+        <p>Using the CSS checkbox hack ensures your documentation navigation works perfectly even if a script fails to load, providing a robust, accessible fallback and incredibly fast render times.</p>
+
+        <p>Resize your browser window to see the responsive layout in action. At 768px, the sidebar transforms into a mobile-friendly slide-out drawer.</p>
+      </div>
+    </main>
+  </div>
+</body>
+</html>
