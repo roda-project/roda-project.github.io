@@ -217,7 +217,14 @@ a {
 
 .content-container p {
   margin-bottom: 1rem;
+}
+
+.content-container p, .content-container li {
   color: var(--text-secondary);
+}
+
+.content-container strong {
+  color: var(--text-primary);
 }
 
 /* --- 7. Mobile Media Query --- */
@@ -321,4 +328,36 @@ a {
   overflow: hidden;
   clip: rect(0, 0, 0, 0);
   border: 0;
+}
+
+/* ------------- CODE THEME -------------- */
+
+.hljs
+ {
+    background: #171717;
+    color: #dcdcdc;
+}
+
+.hljs-section, .hljs-title {
+  color: #f3d90d;
+  font-weight: normal;
+}
+
+.hljs-attribute, .hljs-doctag, .hljs-keyword, .hljs-meta .hljs-keyword, .hljs-name, .hljs-selector-tag
+{
+    font-weight: normal;
+    color: #ef4348;
+}
+
+.hljs-addition, .hljs-built_in, .hljs-bullet, .hljs-code {
+    color: #c7b3e3;
+}
+
+.hljs-deletion, .hljs-number, .hljs-quote, .hljs-selector-class, .hljs-selector-id, .hljs-string, .hljs-template-tag, .hljs-type {
+    color: #49b69a;
+}
+
+.hljs-link, .hljs-operator, .hljs-regexp, .hljs-selector-attr, .hljs-selector-pseudo, .hljs-symbol, .hljs-template-variable, .hljs-variable
+ {
+    color: #f92672;
 }

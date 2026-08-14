@@ -14,6 +14,7 @@
     <script src="
     https://cdn.jsdelivr.net/npm/@hotwired/turbo@8.0.23/dist/turbo.es2017-umd.min.js
     "></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/default.min.css">
 
     <%= stylesheet_link_tag "docs" %>
     <%= javascript_include_tag "docs" %>
@@ -42,59 +43,76 @@
     <div class="layout-wrapper">
       <nav class="sidebar">
         <div class="sidebar-header">
-          <img src="/images/roda-project.png" style="width: 100%;"/>
+          <a href="/">
+            <img src="/images/roda-project.png" style="width: 100%;"/>
+          </a>
         </div>
 
         <div class="sidebar-content">
           <ul class="menu-sections">
             <li class="menu-section">
-              <span class="section-title">Getting Started</span>
               <ul class="section-items">
                 <li>
                   <a href="/docs" <%= "class='active'" if current_page.url == '/docs/' %>>
-                    <div>Home</div>
+                    <div>Getting Started</div>
                   </a>
                 </li>
-                <li>
-                  <a href="/docs/project-structure" <%= "class='active'" if current_page.url == '/docs/project-structure/' %>>
-                    <div>Project Structure</div>
-                  </a>
-                </li>
-                <li>
-                  <a href="/docs/rake-tasks" <%= "class='active'" if current_page.url == '/docs/rake-tasks/' %>>
-                    <div>Rake tasks</div>
-                  </a>
-                </li>
+              </ul>
+            </li>
+
+            <li class="menu-section">
+              <span class="section-title">Project Structure</span>
+              <ul class="section-items">
+                <li><a href="#">API / Fullstack</a></li>
+                <li><a href="#">Minimal</a></li>
+                <li><a href="#">--jeremy</a></li>
+              </ul>
+            </li>
+
+            <li class="menu-section">
+              <span class="section-title">CLI (bin/roda)</span>
+              <ul class="section-items">
+                <li><a href="#">generators</a></li>
+                <li><a href="#">assets</a></li>
+                <li><a href="#">dev</a></li>
+                <li><a href="#">server</a></li>
+                <li><a href="#">db (database)</a></li>
+              </ul>
+            </li>
+
+            <li class="menu-section">
+              <span class="section-title">External Resources</span>
+              <ul class="section-items">
                 <li>
                   <a href="https://roda.jeremyevans.net/documentation.html" target="_blank">
                     <div>Roda Docs</div>
                   </a>
                 </li>
                 <li>
-                  <a href="https://sequel.jeremyevans.net/index.html" target="_blank">
+                  <a href="https://sequel.jeremyevans.net/documentation.html" target="_blank">
                     <div>Sequel Docs</div>
+                  </a>
+                </li>
+                <li>
+                  <a href="https://rodauth.jeremyevans.net/documentation.html" target="_blank">
+                    <div>Rodauth Docs</div>
                   </a>
                 </li>
               </ul>
             </li>
 
             <li class="menu-section">
-              <span class="section-title">Core Concepts</span>
+              <span class="section-title">Cheat sheet</span>
               <ul class="section-items">
-                <li><a href="#">Architecture</a></li>
+                <li><a href="#">Authentication</a></li>
+                <li><a href="#">CSRF</a></li>
                 <li><a href="#">Routing</a></li>
-                <li><a href="#">State Management</a></li>
+                <li><a href="#">I18n</a></li>
+                <li><a href="#">Inertia JS</a></li>
+                <li><a href="#">Assets (js / css)</a></li>
               </ul>
             </li>
 
-            <li class="menu-section">
-              <span class="section-title">API Reference</span>
-              <ul class="section-items">
-                <li><a href="#">Endpoints</a></li>
-                <li><a href="#">Authentication</a></li>
-                <li><a href="#">Rate Limits</a></li>
-              </ul>
-            </li>
           </ul>
         </div>
       </nav>
@@ -104,5 +122,8 @@
           <%= yield %>
         </div>
       </main>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/ruby.min.js"></script>
+      <script>hljs.highlightAll();</script>
   </body>
 </html>

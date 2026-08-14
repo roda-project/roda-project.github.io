@@ -28,18 +28,20 @@ a {
 }
 
 /* --- Navigation --- */
-header {
-  background-color: var(--bg-white);
-  border-bottom: 1px solid #e5e7eb;
+header
+{
+  background-color: #000000;
+  border-bottom: 4px solid #ef4348;
   position: sticky;
   top: 0;
   z-index: 100;
+  color: white;
 }
 
 .nav-container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 1.25rem 2rem;
+  padding: 0.5em 2rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -99,8 +101,9 @@ header {
   align-items: center;
 }
 
-.hero-content h1 {
-  font-size: 3.5rem;
+.hero-content h1
+{
+  font-size: 2rem;
   line-height: 1.1;
   margin-bottom: 1.5rem;
   letter-spacing: -0.02em;

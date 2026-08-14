@@ -12,6 +12,25 @@ title: Roda project
 
 Roda Project is a command-line interface (CLI) tool that helps you quickly scaffold new [Roda](https://roda.jeremyevans.net/) web applications. It provides an interactive setup to generate a Roda project tailored to your specific needs, including choices for project type, database, authentication, and testing frameworks.
 
+<pre>
+<code class="language-ruby"># config.ru                                                  
+run do |env|                                                 
+  [200, {'content-type' => 'text/html'}, ["<h1>Hello!</h1>"]]
+end                                                          
+class Roda                                     
+  module Project                               
+    module Helpers                             
+      module Inflections                       
+        module_function                        
+                                               
+        def camelize(str)                      
+          return str if /[A-Z]/.match?(str)    
+                                               
+          str.split("_").map(&:capitalize).join
+        end                                    
+</code>
+</pre>
+
 #### Features
 
 *   **Project Types**: Generate fullstack web applications (with frontend assets) or API-only backends.
