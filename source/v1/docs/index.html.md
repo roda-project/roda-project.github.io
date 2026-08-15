@@ -1,83 +1,98 @@
 ---
-title: Roda project
+title: Roda project - Getting Started
 ---
 
 <h1 class="visually-hidden"> Roda Project </h1>
 
-## Getting Started / Home
+## Getting Started
 
 [![Gem Version](https://badge.fury.io/rb/roda-project.svg)](https://badge.fury.io/rb/roda-project)
 [![CI](https://github.com/roda-project/roda-project/actions/workflows/main.yml/badge.svg)](https://github.com/roda-project/roda-project/actions/workflows/main.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-Roda Project is a command-line interface (CLI) tool that helps you quickly scaffold new [Roda](https://roda.jeremyevans.net/) web applications. It provides an interactive setup to generate a Roda project tailored to your specific needs, including choices for project type, database, authentication, and testing frameworks.
+**`roda-project`** is a command-line interface (CLI) tool designed to quickly scaffold scalable, modern <a href="https://roda.jeremyevans.net/" target="_blank">Roda</a> web applications and APIs.
+
+---
+
+### Step 1: Installation
+
+Install the `roda-project` gem globally via RubyGems:
 
 <pre>
-<code class="language-ruby"># config.ru                                                  
-run do |env|                                                 
-  [200, {'content-type' => 'text/html'}, ["<h1>Hello!</h1>"]]
-end                                                          
-class Roda                                     
-  module Project                               
-    module Helpers                             
-      module Inflections                       
-        module_function                        
-                                               
-        def camelize(str)                      
-          return str if /[A-Z]/.match?(str)    
-                                               
-          str.split("_").map(&:capitalize).join
-        end                                    
-</code>
+<code class="language-bash">$ gem install roda-project</code>
 </pre>
 
-#### Features
+---
 
-*   **Project Types**: Generate fullstack web applications (with frontend assets) or API-only backends.
-*   **Database Support (Sequel)**: Integrate with SQLite, PostgreSQL, or MySQL, including basic connection configuration and migration setup.
-*   **Authentication**: Optionally include [Rodauth](https://rodauth.jeremyevans.net/) for robust authentication features.
-*   **Testing Frameworks**: Choose between [RSpec](https://rspec.info/) or [Minitest](https://minitest.github.io/) for your testing environment.
-*   **Frontend Tooling**: For fullstack projects, includes basic frontend asset management with `esbuild`.
+### Step 2: Scaffold Your Application
 
-Included in all: **Live reload**, **Zeitwerk**, and a bunch of usefull **Rake tasks**
+Run `roda-project` in your terminal to start the interactive application wizard:
 
-#### Installation
+<pre>
+<code class="language-bash">$ roda-project</code>
+</pre>
 
+The CLI will prompt you to select your application options:
 
-`$ gem install roda-project`
+1. **Project Name**: Enter the directory and app name (e.g. `my_app`).
+2. **Architecture**:
+   * **Fullstack**: Includes views (ERB), asset pipeline (`esbuild`), and full web frontend setup.
+   * **API**: Lightweight JSON-focused structure.
+   * **Minimal**: Bare-bones single-file Roda application.
+3. **Testing Framework**: Choose between **RSpec** or **Minitest**.
+4. **Database** *(Fullstack & API)*: Choose **SQLite**, **PostgreSQL**, or **MySQL**.
+5. **Authentication** *(Fullstack & API with Database)*: Optionally include **Rodauth** authentication templates.
 
-#### Usage
+---
 
-To create a new Roda project, simply run the `roda-project` command in your terminal:
+### Step 3: Install Dependencies
 
-`$ roda-project`
+Navigate into your generated project directory and bundle Ruby dependencies:
 
-The CLI will then guide you through a series of interactive prompts to configure your new application:
+<pre>
+<code class="language-bash">$ cd my_app && bundle install</code>
+</pre>
 
-1.  **Project name**: Enter the desired name for your project.
-2.  **Project type**: Choose between `(1) Fullstack` (web application with frontend), `(2) API` (backend only) or `(3) Minimal`.
-3.  **Test framework**: Select `(1) RSpec` or `(2) Minitest`.
-4.  **Database? (Y/n)**: Decide if you want to include database support.
-    *   If `Y`:
-        *   **Database type**: Choose `(1) SQLite`, `(2) PostgreSQL`, or `(3) MySQL`.
-        *   **Rodauth? (authentication) (Y/n)**: Decide if you want to include Rodauth for authentication.
+If you created a **Fullstack** application, Node.js dependencies will also be installed when compiling assets:
 
-After answering the prompts, `roda-project` will generate the project structure and files in a new directory with your specified project name.
+<pre>
+<code class="language-bash">$ bin/roda assets</code>
+</pre>
 
-#### Development
+---
 
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
+### Step 4: Setup the Database (If applicable)
 
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and the created tag, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+If your project includes a database (PostgreSQL, MySQL, or SQLite):
 
-#### Contributing
+1. For PostgreSQL/MySQL, configure your database credentials in `app/config/config.rb` or set your `DATABASE_URL`.
+2. Create the database:
 
-Bug reports and pull requests are welcome on GitHub at [https://github.com/roda-project/roda-project](https://github.com/roda-project/roda-project). This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [code of conduct](https://github.com/roda-project/roda-project/blob/main/CODE_OF_CONDUCT.md).
+<pre>
+<code class="language-bash">$ bin/roda db create</code>
+</pre>
 
-#### License
+3. Run initial Sequel schema migrations:
 
-The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
+<pre>
+<code class="language-bash">$ bin/roda db migrate</code>
+</pre>
 
-## Code of Conduct
+---
 
-Everyone interacting in the Roda Project project's codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/roda-project/roda-project/blob/main/CODE_OF_CONDUCT.md).
+### Step 5: Start Development Mode with `bin/roda dev`
+
+To start local development with continuous watching and automatic reloads:
+
+<pre>
+<code class="language-bash">$ bin/roda dev</code>
+</pre>
+
+* Executes Puma server and `Guard` to watch for file changes in routes, models, views, and assets.
+* Open your browser at `http://localhost:4000`.
+
+For **Fullstack** apps, compile static frontend assets in watch mode concurrently:
+
+<pre>
+<code class="language-bash">$ bin/roda assets -w</code>
+</pre>

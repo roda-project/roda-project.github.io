@@ -40,6 +40,12 @@ helpers do
 
     "<li><a href='#{path}'>#{description}</a></li>"
   end
+
+  def current_docs_api_version
+    # current_page.url => "/v1/docs/"
+    # .split('/') => ["", "v1", "docs"]
+    current_page.url.split('/')[1]
+  end
 end
 
 # Build-specific configuration

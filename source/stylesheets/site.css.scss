@@ -27,6 +27,11 @@ a {
   color: inherit;
 }
 
+.hero-content .text-a {
+  color: var(--ruby-red);
+  text-decoration: underline;
+}
+
 /* --- Navigation --- */
 header
 {

@@ -35,6 +35,15 @@ a {
   color: var(--accent-color);
 }
 
+hr {
+  margin: 1em 0em;
+  border: 1px dotted #252525;
+}
+
+h3 {
+  margin-bottom: 1em;
+}
+
 /* --- 2. The Hidden Checkbox & Overlay --- */
 .menu-toggle-checkbox {
   display: none;
