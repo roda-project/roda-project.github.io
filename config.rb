@@ -32,11 +32,15 @@ page '/*.txt', layout: false
 # Methods defined in the helpers block are available in templates
 # https://middlemanapp.com/basics/helper-methods/
 
-# helpers do
-#   def some_helper
-#     'Helping'
-#   end
-# end
+helpers do
+  def sidebar_link(path, description)
+    if current_page.url == "#{path}/"
+      return "<li><a href='#{path}' class='active'>#{description}</a></li>"
+    end
+
+    "<li><a href='#{path}'>#{description}</a></li>"
+  end
+end
 
 # Build-specific configuration
 # https://middlemanapp.com/advanced/configuration/#environment-specific-settings

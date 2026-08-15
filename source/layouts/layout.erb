@@ -41,7 +41,7 @@
     </header>
 
     <div class="layout-wrapper">
-      <nav class="sidebar">
+      <nav id="docs-sidebar" class="sidebar" data-turbo-permanent>
         <div class="sidebar-header">
           <a href="/">
             <img src="/images/roda-project.png" style="width: 100%;"/>
@@ -52,31 +52,27 @@
           <ul class="menu-sections">
             <li class="menu-section">
               <ul class="section-items">
-                <li>
-                  <a href="/docs" <%= "class='active'" if current_page.url == '/docs/' %>>
-                    <div>Getting Started</div>
-                  </a>
-                </li>
+                <%= sidebar_link("/v1/docs", "Getting Started") %>
               </ul>
             </li>
 
             <li class="menu-section">
               <span class="section-title">Project Structure</span>
               <ul class="section-items">
-                <li><a href="#">API / Fullstack</a></li>
-                <li><a href="#">Minimal</a></li>
-                <li><a href="#">--jeremy</a></li>
+                <%= sidebar_link("/v1/docs/project-structure/api-fullstack", "API / Fullstack") %>
+                <%= sidebar_link("/v1/docs/project-structure/minimal", "Minimal") %>
+                <%= sidebar_link("/v1/docs/project-structure/jeremy", "--jeremy") %>
               </ul>
             </li>
 
             <li class="menu-section">
               <span class="section-title">CLI (bin/roda)</span>
               <ul class="section-items">
-                <li><a href="#">generators</a></li>
-                <li><a href="#">assets</a></li>
-                <li><a href="#">dev</a></li>
-                <li><a href="#">server</a></li>
-                <li><a href="#">db (database)</a></li>
+                <%= sidebar_link("/v1/docs/cli/generators", "generators") %>
+                <%= sidebar_link("/v1/docs/cli/assets", "assets") %>
+                <%= sidebar_link("/v1/docs/cli/dev", "dev") %>
+                <%= sidebar_link("/v1/docs/cli/server", "server") %>
+                <%= sidebar_link("/v1/docs/cli/db", "db (database)") %>
               </ul>
             </li>
 
@@ -101,17 +97,17 @@
               </ul>
             </li>
 
-            <li class="menu-section">
-              <span class="section-title">Cheat sheet</span>
-              <ul class="section-items">
-                <li><a href="#">Authentication</a></li>
-                <li><a href="#">CSRF</a></li>
-                <li><a href="#">Routing</a></li>
-                <li><a href="#">I18n</a></li>
-                <li><a href="#">Inertia JS</a></li>
-                <li><a href="#">Assets (js / css)</a></li>
-              </ul>
-            </li>
+            <%#<li class="menu-section">%>
+              <%#<span class="section-title">Cheat sheet</span>%>
+              <%#<ul class="section-items">%>
+                <%#<li><a href="#">Authentication</a></li>%>
+                <%#<li><a href="#">CSRF</a></li>%>
+                <%#<li><a href="#">Routing</a></li>%>
+                <%#<li><a href="#">I18n</a></li>%>
+                <%#<li><a href="#">Inertia JS</a></li>%>
+                <%#<li><a href="#">Assets (JS / CSS)</a></li>%>
+              <%#</ul>%>
+            <%#</li>%>
 
           </ul>
         </div>
@@ -124,6 +120,28 @@
       </main>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/ruby.min.js"></script>
-      <script>hljs.highlightAll();</script>
+    <script>
+      hljs.highlightAll();
+
+      function updateActiveSidebarLink() {
+        // 1. Get the current page path (e.g., "/setup.html")
+        const currentPath = window.location.pathname;
+
+        // 2. Select all links inside your sidebar
+        const sidebarLinks = document.querySelectorAll('#docs-sidebar a');
+
+        sidebarLinks.forEach(link => {
+          // 3. Compare the link's path to the current URL path
+          if (link.pathname === currentPath) {
+            link.classList.add('active');
+          } else {
+            link.classList.remove('active');
+          }
+        });
+      }
+
+      // Run on initial page load AND after every Turbo navigation
+      document.addEventListener("turbo:load", updateActiveSidebarLink);
+    </script>
   </body>
 </html>

@@ -1,6 +1,8 @@
 ---
-title: Roda project - Rake tasks
+title: Roda project / CLI / generators
 ---
+
+## CLI / generators
 
 To get a quick overview of all available tasks, simply run `rake` or `rake -T` in your project's root directory.
 
