@@ -36,6 +36,7 @@ a {
 header
 {
   background-color: #000000;
+  background-image: url(/images/space.png);
   border-bottom: 4px solid #ef4348;
   position: sticky;
   top: 0;
@@ -209,7 +210,7 @@ footer {
   padding: 3rem 2rem;
   color: var(--text-muted);
   border-top: 1px solid #e5e7eb;
-  margin-top: 4rem;
+  margin-top: 1rem;
 }
 
 /* --- Responsive Design --- */

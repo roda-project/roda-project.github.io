@@ -74,10 +74,7 @@ Houses the core domain and routing logic of your Roda application:
 *   **`app/config/`**: Configuration management:
     *   **`app/config/config.rb`**: Manages environment variables, application settings, database credentials, and secret keys.
     *   **`app/config/locales/`**: Stores YAML internationalization (i18n) locale files (e.g. `en.yml`, `pt-BR.yml`).
-    *   **`app/config/providers/`**: Service provider initializers:
-        *   **`app/config/providers/db/conn.rb`**: Establishes Sequel database connections and manages connection pool options.
-        *   **`app/config/providers/logger.rb`**: Configures application logging.
-        *   **`app/config/providers/mailer.rb`**: Configures email delivery settings.
+    *   **`app/config/providers/`**: Service provider initializers. A provider is a class used in the boot process for setup dependencies (or services) single instances and retrive in app logic.
 *   **`app/models/`**: Sequel ORM model classes (e.g. `account.rb`).
 *   **`app/routes/`**: Houses Roda hash branches. Each file defines sub-routes and endpoints for modular routing logic.
 *   **`app/views/`**: *(Fullstack only)* Template directory:
