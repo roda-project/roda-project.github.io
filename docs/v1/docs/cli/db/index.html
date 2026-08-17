@@ -159,28 +159,38 @@
       </main>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/ruby.min.js"></script>
-    <script>
-      hljs.highlightAll();
+      <script>
+        // Initialize syntax highlighting
+        hljs.highlightAll();
 
-      function updateActiveSidebarLink() {
-        // 1. Get the current page path (e.g., "/setup.html")
-        const currentPath = window.location.pathname;
+        function updateActiveSidebarLink() {
+          // 1. Get the current path and remove any trailing slash (unless it is exactly "/")
+          const currentPath = window.location.pathname.replace(/\/$/, "") || "/";
 
-        // 2. Select all links inside your sidebar
-        const sidebarLinks = document.querySelectorAll('#docs-sidebar a');
+          // 2. Select all links inside your sidebar
+          const sidebarLinks = document.querySelectorAll('#docs-sidebar a');
 
-        sidebarLinks.forEach(link => {
-          // 3. Compare the link's path to the current URL path
-          if (link.pathname === currentPath) {
-            link.classList.add('active');
-          } else {
-            link.classList.remove('active');
-          }
-        });
-      }
+          sidebarLinks.forEach(link => {
+            // Ignore external links (like your Jeremy Evans docs links)
+            if (link.origin !== window.location.origin) return;
 
-      // Run on initial page load AND after every Turbo navigation
-      document.addEventListener("turbo:load", updateActiveSidebarLink);
-    </script>
+            // 3. Normalize the link's path to ensure a perfect match
+            const linkPath = link.pathname.replace(/\/$/, "") || "/";
+
+            // 4. Compare and toggle the active class
+            if (linkPath === currentPath) {
+              link.classList.add('active');
+            } else {
+              link.classList.remove('active');
+            }
+          });
+        }
+
+        // Run after every Turbo navigation
+        document.addEventListener("turbo:load", updateActiveSidebarLink);
+
+        // Run on initial page load (safeguard for the first paint before Turbo takes over)
+        document.addEventListener("DOMContentLoaded", updateActiveSidebarLink);
+      </script>
   </body>
 </html>
