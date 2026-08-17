@@ -178,7 +178,7 @@
 
         sidebarLinks.forEach(link => {
           // 3. Compare the link's path to the current URL path
-          if (link.pathname === currentPath) {
+          if (link.pathname.replace(/\/$/, "") === currentPath.replace(/\/$/, "")) {
             link.classList.add('active');
           } else {
             link.classList.remove('active');
