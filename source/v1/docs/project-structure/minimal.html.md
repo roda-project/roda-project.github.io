@@ -10,7 +10,7 @@ The **Minimal** scaffold option creates a bare-bones, ultra-lightweight Roda app
 
 ### Project Structure Overview
 
-<pre>
+<pre class="dirs">
 ├── boot.rb
 ├── config.ru
 ├── Gemfile

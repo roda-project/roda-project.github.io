@@ -13,16 +13,17 @@ title: Roda project - Getting Started
 **`roda-project`** is a command-line interface (CLI) tool designed to quickly scaffold scalable, modern <a href="https://roda.jeremyevans.net/" target="_blank">Roda</a> web applications and APIs.
 
 #### ✨ Benefits
-- Code autoloading (Zeitwerk)
-- Built in generators (bin/roda)
-- Useful development tasks (console, db, dev, assets) (bin/roda)
-- Faster setup following your preferences (database, project type, test framework)
-- Modern front-end setup built in for full-stack projects (with esbuild)
-- Hot reload
-- Optionated project structure: more maintenable and friendly for AI's (But easy to change if needed)
-- i18n and many others necessary plugins pre-configured
-- Get the job done, keeping good performance (Roda, even with many plugins, is 4x faster than Rails and 2x from Hanami using less memory than both)
-- Production ready
+- Quick setup customized to your preferences (database, project type, test framework)
+- Built-in generators (bin/roda)
+- Essential development tasks via bin/roda (console, db, dev, assets)
+- Opinionated project structure: Highly maintainable and AI-friendly, yet easily customizable if needed
+- Built-in exception page
+- Modern front-end setup built-in for full-stack projects (powered by esbuild)
+- Code autoloading with Zeitwerk
+- Hot reloading
+- Pre-configured with i18n and other essential plugins
+- High performance: Get the job done without sacrificing performance. Even with multiple plugins, Roda is 4x faster than Rails and 2x faster than Hanami, while consuming less memory than both.
+- Production-ready
 
 ---
 

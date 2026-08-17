@@ -12,7 +12,7 @@ Below is a detailed breakdown of the files and directories in **Fullstack** and 
 
 ### Project Structure Overview
 
-<pre>
+<pre class="dirs">
 ├── boot.rb
 ├── config.ru
 ├── esbuild.js          # (Fullstack only)
