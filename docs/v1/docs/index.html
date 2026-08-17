@@ -7,7 +7,7 @@
           content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="A Ruby command-line interface (CLI) tool that helps you quickly scaffold new Roda projects">
     <!-- Use the title from a page's frontmatter if it has one -->
-    <title>Middleman</title>
+    <title>Roda project - Getting Started</title>
     <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
@@ -43,14 +43,14 @@
           <a href="/">
             <img src="/images/roda-project.png" style="width: 100%"/>
           </a>
-          <p>cookbook/docs</p>
+          <p>v1/docs</p>
         </div>
 
         <div class="sidebar-content">
           <ul class="menu-sections">
             <li class="menu-section">
               <ul class="section-items">
-                <li><a href='/v1/docs'>Getting Started</a></li>
+                <li><a href='/v1/docs' class='active'>Getting Started</a></li>
               </ul>
             </li>
 
@@ -103,64 +103,126 @@
 
       <main class="main-content">
         <div class="content-container">
-          <p>
-  This section guides for roda project
-</p>
+          <h1 class="visually-hidden"> Roda Project </h1>
 
-<h4> Routing </h4>
-<div class="grid">
-  <div class="m3 s4">
-    <article>
-      <h5>Title</h5>
-      <p>Some text here</p>
-    </article>
-  </div>
-  <div class="m3 s4">
-    <article>
-      <h5>Title</h5>
-      <p>Some text here</p>
-    </article>
-  </div>
-  <div class="m3 s4">
-    <article>
-      <h5>Title</h5>
-      <p>Some text here</p>
-    </article>
-  </div>
-  <div class="m3 s4">
-    <article>
-      <h5>Title</h5>
-      <p>Some text here</p>
-    </article>
-  </div>
-</div>
-<h4> Securing </h4>
-<div class="grid">
-  <div class="m3 s4">
-    <article>
-      <h5>Title</h5>
-      <p>Some text here</p>
-    </article>
-  </div>
-  <div class="m3 s4">
-    <article>
-      <h5>Title</h5>
-      <p>Some text here</p>
-    </article>
-  </div>
-  <div class="m3 s4">
-    <article>
-      <h5>Title</h5>
-      <p>Some text here</p>
-    </article>
-  </div>
-  <div class="m3 s4">
-    <article>
-      <h5>Title</h5>
-      <p>Some text here</p>
-    </article>
-  </div>
-</div>
+<h2 id="getting-started">Getting Started</h2>
+
+<p><a href="https://badge.fury.io/rb/roda-project"><img src="https://badge.fury.io/rb/roda-project.svg" alt="Gem Version" /></a>
+<a href="https://github.com/roda-project/roda-project/actions/workflows/main.yml"><img src="https://github.com/roda-project/roda-project/actions/workflows/main.yml/badge.svg" alt="CI" /></a>
+<a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/License-MIT-yellow.svg" alt="License: MIT" /></a></p>
+
+<p><strong><code>roda-project</code></strong> is a command-line interface (CLI) tool designed to quickly scaffold scalable, modern <a href="https://roda.jeremyevans.net/" target="_blank">Roda</a> web applications and APIs.</p>
+
+<h4 id="benefits">✨ Benefits</h4>
+<ul>
+  <li>Quick setup customized to your preferences (database, project type, test framework)</li>
+  <li>Built-in generators (bin/roda)</li>
+  <li>Essential development tasks via bin/roda (console, db, dev, assets)</li>
+  <li>Opinionated project structure: Highly maintainable and AI-friendly, yet easily customizable if needed</li>
+  <li>Built-in exception page</li>
+  <li>Modern front-end setup built-in for full-stack projects (powered by esbuild)</li>
+  <li>Code autoloading with Zeitwerk</li>
+  <li>Hot reloading</li>
+  <li>Pre-configured with i18n and other essential plugins</li>
+  <li>High performance: Get the job done without sacrificing performance. Even with multiple plugins, Roda is 4x faster than Rails and 2x faster than Hanami, while consuming less memory than both.</li>
+  <li>Production-ready</li>
+</ul>
+
+<hr />
+
+<h3 id="step-1-installation">Step 1: Installation</h3>
+
+<p>Install the <code>roda-project</code> gem globally via RubyGems:</p>
+
+<pre>
+<code class="language-bash">$ gem install roda-project</code>
+</pre>
+
+<hr />
+
+<h3 id="step-2-scaffold-your-application">Step 2: Scaffold Your Application</h3>
+
+<p>Run <code>roda-project</code> in your terminal to start the interactive application wizard:</p>
+
+<pre>
+<code class="language-bash">$ roda-project</code>
+</pre>
+
+<p>The CLI will prompt you to select your application options:</p>
+
+<ol>
+  <li><strong>Project Name</strong>: Enter the directory and app name (e.g. <code>my_app</code>).</li>
+  <li><strong>Architecture</strong>:
+    <ul>
+      <li><strong>Fullstack</strong>: Includes views (ERB), asset pipeline (<code>esbuild</code>), and full web frontend setup.</li>
+      <li><strong>API</strong>: Lightweight JSON-focused structure.</li>
+      <li><strong>Minimal</strong>: Bare-bones single-file Roda application.</li>
+    </ul>
+  </li>
+  <li><strong>Testing Framework</strong>: Choose between <strong>RSpec</strong> or <strong>Minitest</strong>.</li>
+  <li><strong>Database</strong> <em>(Fullstack &amp; API)</em>: Choose <strong>SQLite</strong>, <strong>PostgreSQL</strong>, or <strong>MySQL</strong>.</li>
+  <li><strong>Authentication</strong> <em>(Fullstack &amp; API with Database)</em>: Optionally include <strong>Rodauth</strong> authentication templates.</li>
+</ol>
+
+<hr />
+
+<h3 id="step-3-install-dependencies">Step 3: Install Dependencies</h3>
+
+<p>Navigate into your generated project directory and bundle Ruby dependencies:</p>
+
+<pre>
+<code class="language-bash">$ cd my_app &amp;&amp; bundle install</code>
+</pre>
+
+<p>If you created a <strong>Fullstack</strong> application, Node.js dependencies will also be installed when compiling assets:</p>
+
+<pre>
+<code class="language-bash">$ bin/roda assets</code>
+</pre>
+
+<hr />
+
+<h3 id="step-4-setup-the-database-if-applicable">Step 4: Setup the Database (If applicable)</h3>
+
+<p>If your project includes a database (PostgreSQL, MySQL, or SQLite):</p>
+
+<ol>
+  <li>For PostgreSQL/MySQL, configure your database credentials in <code>app/config/config.rb</code> or set your <code>DATABASE_URL</code>.</li>
+  <li>Create the database:</li>
+</ol>
+
+<pre>
+<code class="language-bash">$ bin/roda db create</code>
+</pre>
+
+<ol>
+  <li>Run initial Sequel schema migrations:</li>
+</ol>
+
+<pre>
+<code class="language-bash">$ bin/roda db migrate</code>
+</pre>
+
+<hr />
+
+<h3 id="step-5-start-development-mode-with-binroda-dev">Step 5: Start Development Mode with <code>bin/roda dev</code></h3>
+
+<p>To start local development with continuous watching and automatic reloads:</p>
+
+<pre>
+<code class="language-bash">$ bin/roda dev</code>
+</pre>
+
+<ul>
+  <li>Executes Puma server and <code>Guard</code> to watch for file changes in routes, models, views, and assets.</li>
+  <li>Open your browser at <code>http://localhost:4000</code>.</li>
+</ul>
+
+<p>For <strong>Fullstack</strong> apps, compile static frontend assets in watch mode concurrently:</p>
+
+<pre>
+<code class="language-bash">$ bin/roda assets -w</code>
+</pre>
 
         </div>
       </main>

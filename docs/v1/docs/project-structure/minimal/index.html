@@ -7,7 +7,7 @@
           content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="A Ruby command-line interface (CLI) tool that helps you quickly scaffold new Roda projects">
     <!-- Use the title from a page's frontmatter if it has one -->
-    <title>Middleman</title>
+    <title>Roda project / Project Structure / minimal</title>
     <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
@@ -43,7 +43,7 @@
           <a href="/">
             <img src="/images/roda-project.png" style="width: 100%"/>
           </a>
-          <p>cookbook/docs</p>
+          <p>v1/docs</p>
         </div>
 
         <div class="sidebar-content">
@@ -58,7 +58,7 @@
               <span class="section-title">Project Structure</span>
               <ul class="section-items">
                 <li><a href='/v1/docs/project-structure/api-fullstack'>API / Fullstack</a></li>
-                <li><a href='/v1/docs/project-structure/minimal'>Minimal</a></li>
+                <li><a href='/v1/docs/project-structure/minimal' class='active'>Minimal</a></li>
                 <li><a href='/v1/docs/project-structure/jeremy'>--jeremy</a></li>
               </ul>
             </li>
@@ -103,64 +103,44 @@
 
       <main class="main-content">
         <div class="content-container">
-          <p>
-  This section guides for roda project
-</p>
+          <h2 id="project-structure--minimal">Project Structure / Minimal</h2>
 
-<h4> Routing </h4>
-<div class="grid">
-  <div class="m3 s4">
-    <article>
-      <h5>Title</h5>
-      <p>Some text here</p>
-    </article>
-  </div>
-  <div class="m3 s4">
-    <article>
-      <h5>Title</h5>
-      <p>Some text here</p>
-    </article>
-  </div>
-  <div class="m3 s4">
-    <article>
-      <h5>Title</h5>
-      <p>Some text here</p>
-    </article>
-  </div>
-  <div class="m3 s4">
-    <article>
-      <h5>Title</h5>
-      <p>Some text here</p>
-    </article>
-  </div>
-</div>
-<h4> Securing </h4>
-<div class="grid">
-  <div class="m3 s4">
-    <article>
-      <h5>Title</h5>
-      <p>Some text here</p>
-    </article>
-  </div>
-  <div class="m3 s4">
-    <article>
-      <h5>Title</h5>
-      <p>Some text here</p>
-    </article>
-  </div>
-  <div class="m3 s4">
-    <article>
-      <h5>Title</h5>
-      <p>Some text here</p>
-    </article>
-  </div>
-  <div class="m3 s4">
-    <article>
-      <h5>Title</h5>
-      <p>Some text here</p>
-    </article>
-  </div>
-</div>
+<p>The <strong>Minimal</strong> scaffold option creates a bare-bones, ultra-lightweight Roda application. It is ideal for microservices, tiny APIs, single-file prototypes, or applications where you want complete control without additional directory setup or ORM overhead.</p>
+
+<hr />
+
+<h3 id="project-structure-overview">Project Structure Overview</h3>
+
+<pre class="dirs">
+├── boot.rb
+├── config.ru
+├── Gemfile
+├── Guardfile
+├── Rakefile
+├── AGENTS.md
+├── app/
+│   └── [project_name].rb
+├── bin/
+│   └── roda
+└── spec/
+    ├── app/
+    │   └── [project_name]_spec.rb
+    └── spec_helper.rb
+</pre>
+
+<hr />
+
+<h3 id="key-components">Key Components</h3>
+
+<ul>
+  <li><strong><code>boot.rb</code></strong>: Initializes Bundler and sets up the minimal Ruby load environment.</li>
+  <li><strong><code>config.ru</code></strong>: standard Rack entry point that mounts your Roda app (<code>run MyApp</code>).</li>
+  <li><strong><code>app/&lt;project_name&gt;.rb</code></strong>: Contains your main Roda application class definition, plugin inclusions, and route tree.</li>
+  <li><strong><code>bin/roda</code></strong>: Embedded CLI script with essential commands for development (<code>bin/roda dev</code>), testing (<code>bin/roda test</code>), code linting (<code>bin/roda lint</code>), and server execution (<code>bin/roda server</code>).</li>
+  <li><strong><code>spec/</code></strong>: Includes lightweight test setup with <code>spec_helper.rb</code> and initial RSpec or Minitest specs targeting your Roda app.</li>
+  <li><strong><code>Gemfile</code></strong>: Contains only the core gems (<code>roda</code>, <code>puma</code>, <code>rack</code>, test gems, and <code>standard</code> for linting).</li>
+  <li><strong><code>AGENTS.md</code></strong>: Project guidelines and development rules.</li>
+</ul>
 
         </div>
       </main>

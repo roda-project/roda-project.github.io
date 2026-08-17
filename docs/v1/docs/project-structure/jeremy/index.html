@@ -7,7 +7,7 @@
           content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="A Ruby command-line interface (CLI) tool that helps you quickly scaffold new Roda projects">
     <!-- Use the title from a page's frontmatter if it has one -->
-    <title>Middleman</title>
+    <title>Roda project / Project Structure / --jeremy</title>
     <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
@@ -43,7 +43,7 @@
           <a href="/">
             <img src="/images/roda-project.png" style="width: 100%"/>
           </a>
-          <p>cookbook/docs</p>
+          <p>v1/docs</p>
         </div>
 
         <div class="sidebar-content">
@@ -59,7 +59,7 @@
               <ul class="section-items">
                 <li><a href='/v1/docs/project-structure/api-fullstack'>API / Fullstack</a></li>
                 <li><a href='/v1/docs/project-structure/minimal'>Minimal</a></li>
-                <li><a href='/v1/docs/project-structure/jeremy'>--jeremy</a></li>
+                <li><a href='/v1/docs/project-structure/jeremy' class='active'>--jeremy</a></li>
               </ul>
             </li>
 
@@ -103,64 +103,17 @@
 
       <main class="main-content">
         <div class="content-container">
-          <p>
-  This section guides for roda project
-</p>
+          <h2 id="project-structure----jeremy">Project Structure / –jeremy</h2>
 
-<h4> Routing </h4>
-<div class="grid">
-  <div class="m3 s4">
-    <article>
-      <h5>Title</h5>
-      <p>Some text here</p>
-    </article>
-  </div>
-  <div class="m3 s4">
-    <article>
-      <h5>Title</h5>
-      <p>Some text here</p>
-    </article>
-  </div>
-  <div class="m3 s4">
-    <article>
-      <h5>Title</h5>
-      <p>Some text here</p>
-    </article>
-  </div>
-  <div class="m3 s4">
-    <article>
-      <h5>Title</h5>
-      <p>Some text here</p>
-    </article>
-  </div>
-</div>
-<h4> Securing </h4>
-<div class="grid">
-  <div class="m3 s4">
-    <article>
-      <h5>Title</h5>
-      <p>Some text here</p>
-    </article>
-  </div>
-  <div class="m3 s4">
-    <article>
-      <h5>Title</h5>
-      <p>Some text here</p>
-    </article>
-  </div>
-  <div class="m3 s4">
-    <article>
-      <h5>Title</h5>
-      <p>Some text here</p>
-    </article>
-  </div>
-  <div class="m3 s4">
-    <article>
-      <h5>Title</h5>
-      <p>Some text here</p>
-    </article>
-  </div>
-</div>
+<p>We can create new projects using the <code>--jeremy</code> flag:</p>
+
+<pre>
+<code class="language-bash">$ roda-project --jeremy</code>
+</pre>
+
+<p>This way, <code>roda-project</code> will download via git and use the <a href="https://github.com/jeremyevans/roda-sequel-stack" target="_blank">roda-sequel-stack</a> template created by Jeremy Evans.</p>
+
+<p>This template is independent of <code>roda-project</code> and does not include <code>bin/roda</code>. You can see details on how to use it in the template’s README.md.</p>
 
         </div>
       </main>

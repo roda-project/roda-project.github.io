@@ -7,7 +7,7 @@
           content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="A Ruby command-line interface (CLI) tool that helps you quickly scaffold new Roda projects">
     <!-- Use the title from a page's frontmatter if it has one -->
-    <title>Middleman</title>
+    <title>Roda project / CLI / assets</title>
     <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
@@ -43,7 +43,7 @@
           <a href="/">
             <img src="/images/roda-project.png" style="width: 100%"/>
           </a>
-          <p>cookbook/docs</p>
+          <p>v1/docs</p>
         </div>
 
         <div class="sidebar-content">
@@ -68,7 +68,7 @@
               <ul class="section-items">
                 <li><a href='/v1/docs/cli/generators'>generators</a></li>
                 <li><a href='/v1/docs/cli/db'>db (database)</a></li>
-                <li><a href='/v1/docs/cli/assets'>assets</a></li>
+                <li><a href='/v1/docs/cli/assets' class='active'>assets</a></li>
                 <li><a href='/v1/docs/cli/console'>console</a></li>
                 <li><a href='/v1/docs/cli/dev'>dev</a></li>
                 <li><a href='/v1/docs/cli/server'>server</a></li>
@@ -103,64 +103,41 @@
 
       <main class="main-content">
         <div class="content-container">
-          <p>
-  This section guides for roda project
-</p>
+          <h2 id="cli--assets">CLI / assets</h2>
 
-<h4> Routing </h4>
-<div class="grid">
-  <div class="m3 s4">
-    <article>
-      <h5>Title</h5>
-      <p>Some text here</p>
-    </article>
-  </div>
-  <div class="m3 s4">
-    <article>
-      <h5>Title</h5>
-      <p>Some text here</p>
-    </article>
-  </div>
-  <div class="m3 s4">
-    <article>
-      <h5>Title</h5>
-      <p>Some text here</p>
-    </article>
-  </div>
-  <div class="m3 s4">
-    <article>
-      <h5>Title</h5>
-      <p>Some text here</p>
-    </article>
-  </div>
-</div>
-<h4> Securing </h4>
-<div class="grid">
-  <div class="m3 s4">
-    <article>
-      <h5>Title</h5>
-      <p>Some text here</p>
-    </article>
-  </div>
-  <div class="m3 s4">
-    <article>
-      <h5>Title</h5>
-      <p>Some text here</p>
-    </article>
-  </div>
-  <div class="m3 s4">
-    <article>
-      <h5>Title</h5>
-      <p>Some text here</p>
-    </article>
-  </div>
-  <div class="m3 s4">
-    <article>
-      <h5>Title</h5>
-      <p>Some text here</p>
-    </article>
-  </div>
-</div>
+<p>The <code>assets</code> command is used in Fullstack Roda applications to compile and bundle frontend assets (JavaScript, CSS, images) managed via Node.js and <code>esbuild</code>.</p>
+
+<h3 id="overview">Overview</h3>
+
+<p>When building a fullstack application, <code>roda-project</code> configures <code>esbuild</code> for fast asset bundling and compiles your static resources into the <code>public/</code> directory. The <code>bin/roda assets</code> CLI task wraps asset compilation and watching for a smooth development workflow.</p>
+
+<h3 id="usage">Usage</h3>
+
+<pre>
+<code class="language-bash">$ bin/roda assets [OPTIONS]</code>
+</pre>
+
+<h3 id="options">Options</h3>
+
+<ul>
+  <li><strong><code>-w</code></strong>, <strong><code>--watch</code></strong>: Starts <code>esbuild</code> in watch mode and runs <code>npm run build:watch</code>. When source files in <code>app/assets/</code> are modified, <code>esbuild</code> automatically updates the compiled bundles in <code>public/assets/</code>.</li>
+</ul>
+
+<h3 id="examples">Examples</h3>
+
+<h4 id="single-compilation-run">Single compilation run</h4>
+<p>Installs NPM dependencies (if missing) and compiles assets once for deployment or testing:</p>
+
+<pre>
+<code class="language-bash">$ bin/roda assets</code>
+</pre>
+
+<h4 id="watch-mode-for-local-development">Watch mode for local development</h4>
+<p>Continuously recompiles assets whenever changes are detected:</p>
+
+<pre>
+<code class="language-bash">$ bin/roda assets -w</code>
+</pre>
 
         </div>
       </main>

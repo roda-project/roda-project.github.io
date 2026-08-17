@@ -7,7 +7,7 @@
           content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="A Ruby command-line interface (CLI) tool that helps you quickly scaffold new Roda projects">
     <!-- Use the title from a page's frontmatter if it has one -->
-    <title>Middleman</title>
+    <title>Roda project / CLI / generators</title>
     <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
@@ -43,7 +43,7 @@
           <a href="/">
             <img src="/images/roda-project.png" style="width: 100%"/>
           </a>
-          <p>cookbook/docs</p>
+          <p>v1/docs</p>
         </div>
 
         <div class="sidebar-content">
@@ -66,7 +66,7 @@
             <li class="menu-section">
               <span class="section-title">CLI (bin/roda)</span>
               <ul class="section-items">
-                <li><a href='/v1/docs/cli/generators'>generators</a></li>
+                <li><a href='/v1/docs/cli/generators' class='active'>generators</a></li>
                 <li><a href='/v1/docs/cli/db'>db (database)</a></li>
                 <li><a href='/v1/docs/cli/assets'>assets</a></li>
                 <li><a href='/v1/docs/cli/console'>console</a></li>
@@ -103,64 +103,113 @@
 
       <main class="main-content">
         <div class="content-container">
-          <p>
-  This section guides for roda project
-</p>
+          <h2 id="cli--generators">CLI / generators</h2>
 
-<h4> Routing </h4>
-<div class="grid">
-  <div class="m3 s4">
-    <article>
-      <h5>Title</h5>
-      <p>Some text here</p>
-    </article>
-  </div>
-  <div class="m3 s4">
-    <article>
-      <h5>Title</h5>
-      <p>Some text here</p>
-    </article>
-  </div>
-  <div class="m3 s4">
-    <article>
-      <h5>Title</h5>
-      <p>Some text here</p>
-    </article>
-  </div>
-  <div class="m3 s4">
-    <article>
-      <h5>Title</h5>
-      <p>Some text here</p>
-    </article>
-  </div>
-</div>
-<h4> Securing </h4>
-<div class="grid">
-  <div class="m3 s4">
-    <article>
-      <h5>Title</h5>
-      <p>Some text here</p>
-    </article>
-  </div>
-  <div class="m3 s4">
-    <article>
-      <h5>Title</h5>
-      <p>Some text here</p>
-    </article>
-  </div>
-  <div class="m3 s4">
-    <article>
-      <h5>Title</h5>
-      <p>Some text here</p>
-    </article>
-  </div>
-  <div class="m3 s4">
-    <article>
-      <h5>Title</h5>
-      <p>Some text here</p>
-    </article>
-  </div>
-</div>
+<p>The <code>generate</code> subcommand group (aliased as <code>g</code>) provides code generators to scaffold Sequel database migrations, Sequel ORM models, and Roda hash branch routes with specs and views.</p>
+
+<h3 id="binroda-g-routes-branchname-routenamemethod"><code>bin/roda g routes &lt;branch_name&gt; [route_name:method...]</code></h3>
+
+<p>Scaffolds a Roda hash branch file in <code>app/routes/</code>, matching spec files in <code>spec/app/routes/</code>, and ERB views in <code>app/views/</code> (for GET routes in fullstack projects).</p>
+
+<pre>
+<code class="language-bash">$ bin/roda g routes admin users:get posts:post</code>
+</pre>
+
+<p>result:</p>
+
+<pre>
+<code class="language-ruby">class Awd                   
+  hash_branch "admin" do |r|
+    r.get "users" do        
+      view('users') # view app/views/admin/users.erb also created         
+    end                     
+                            
+    r.post "posts" do       
+    end                     
+  end                       
+end                         
+</code>
+</pre>
+
+<ul>
+  <li><strong>Route Specifications</strong>: Format routes as <code>name:method</code> (e.g., <code>users:get</code>, <code>create:post</code>). Default method is <code>get</code>.</li>
+  <li><strong>Nested Branches</strong>: Supports nested paths (e.g. <code>api/v1</code>). Provides helper reminders for loading nested hash branches with <code>autoload_hash_branch_dir</code>.</li>
+  <li><strong>Options</strong>: Use <code>--no-views</code> to skip view template creation.</li>
+</ul>
+
+<p>In some cases, we dont need to name a path inside a hash_branch, so we can explicity generate it with this syntax:</p>
+
+<pre>
+<code class="language-bash">$ bin/roda g routes books :get :post :delete</code>
+</pre>
+
+<p>result:</p>
+
+<pre>
+<code class="language-ruby">class Awd                   
+  hash_branch "books" do |r|
+    r.get do                
+      view('index') # view app/views/books/index.erb also created         
+    end                     
+                            
+    r.post do               
+    end                     
+                            
+    r.delete do             
+    end                     
+  end                       
+end                         
+</code>
+</pre>
+
+<hr />
+
+<h3 id="binroda-g-model-name-fieldtype"><code>bin/roda g model &lt;name&gt; [field:type...]</code></h3>
+
+<p>Generates a Sequel ORM model class in <code>app/models/</code>, a matching model spec in <code>spec/app/models/</code>, and a corresponding Sequel migration file in <code>db/migrations/</code>.</p>
+
+<pre>
+<code class="language-bash">$ bin/roda g model Post title:string body:text published:boolean</code>
+</pre>
+
+<ul>
+  <li><strong>Namespaced Models</strong>: Supports directory/module namespacing, e.g. <code>bin/roda g model Admin/User name:string</code>.</li>
+  <li><strong>Pluralized Table Names</strong>: Automatically infers table names and sets Sequel model class definitions.</li>
+</ul>
+
+<hr />
+
+<h3 id="binroda-g-service-name"><code>bin/roda g service &lt;name&gt;</code></h3>
+
+<p>Generates a service class in <code>app/services/</code> and a matching service spec in <code>spec/app/services/</code>.</p>
+
+<pre>
+<code class="language-bash">$ bin/roda g service my_service</code>
+</pre>
+
+<ul>
+  <li><strong>Namespaced Models</strong>: Supports directory/module namespacing, e.g. <code>bin/roda g service user/create</code>.</li>
+  <li><strong>Service types</strong>: We can choose if the generated service will be a class or module with <code>bin/roda g service &lt;type&gt; &lt;name&gt;</code> (defaults to class). Example:</li>
+</ul>
+
+<pre>
+<code class="language-bash">$ bin/roda g service module my_service</code>
+</pre>
+
+<hr />
+
+<h3 id="binroda-g-migration-name-fieldtype"><code>bin/roda g migration &lt;name&gt; [field:type...]</code></h3>
+
+<p>Creates a timestamped Sequel migration file under <code>db/migrations/</code>.</p>
+
+<pre>
+<code class="language-bash">$ bin/roda g migration add_status_to_users status:string</code>
+</pre>
+
+<ul>
+  <li><strong>Automatic Action Detection</strong>: Analyzes the migration name (e.g. <code>add_..._to_...</code>, <code>remove_..._from_...</code>, <code>create_...</code>) to construct appropriate migration code blocks automatically (follow the same Rails conventions).</li>
+  <li><strong>Field Types</strong>: Supports field type specs like <code>title:string</code>, <code>age:integer</code>, <code>user:references</code>, <code>bio:text</code>, etc.</li>
+</ul>
 
         </div>
       </main>

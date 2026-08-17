@@ -7,7 +7,7 @@
           content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="A Ruby command-line interface (CLI) tool that helps you quickly scaffold new Roda projects">
     <!-- Use the title from a page's frontmatter if it has one -->
-    <title>Middleman</title>
+    <title>Roda project / CLI / server</title>
     <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
@@ -43,7 +43,7 @@
           <a href="/">
             <img src="/images/roda-project.png" style="width: 100%"/>
           </a>
-          <p>cookbook/docs</p>
+          <p>v1/docs</p>
         </div>
 
         <div class="sidebar-content">
@@ -71,7 +71,7 @@
                 <li><a href='/v1/docs/cli/assets'>assets</a></li>
                 <li><a href='/v1/docs/cli/console'>console</a></li>
                 <li><a href='/v1/docs/cli/dev'>dev</a></li>
-                <li><a href='/v1/docs/cli/server'>server</a></li>
+                <li><a href='/v1/docs/cli/server' class='active'>server</a></li>
               </ul>
             </li>
 
@@ -103,64 +103,41 @@
 
       <main class="main-content">
         <div class="content-container">
-          <p>
-  This section guides for roda project
-</p>
+          <h2 id="cli--server">CLI / server</h2>
 
-<h4> Routing </h4>
-<div class="grid">
-  <div class="m3 s4">
-    <article>
-      <h5>Title</h5>
-      <p>Some text here</p>
-    </article>
-  </div>
-  <div class="m3 s4">
-    <article>
-      <h5>Title</h5>
-      <p>Some text here</p>
-    </article>
-  </div>
-  <div class="m3 s4">
-    <article>
-      <h5>Title</h5>
-      <p>Some text here</p>
-    </article>
-  </div>
-  <div class="m3 s4">
-    <article>
-      <h5>Title</h5>
-      <p>Some text here</p>
-    </article>
-  </div>
-</div>
-<h4> Securing </h4>
-<div class="grid">
-  <div class="m3 s4">
-    <article>
-      <h5>Title</h5>
-      <p>Some text here</p>
-    </article>
-  </div>
-  <div class="m3 s4">
-    <article>
-      <h5>Title</h5>
-      <p>Some text here</p>
-    </article>
-  </div>
-  <div class="m3 s4">
-    <article>
-      <h5>Title</h5>
-      <p>Some text here</p>
-    </article>
-  </div>
-  <div class="m3 s4">
-    <article>
-      <h5>Title</h5>
-      <p>Some text here</p>
-    </article>
-  </div>
-</div>
+<p>The <code>server</code> command (aliased as <code>s</code>) boots the Puma web server to run your Roda application in either development or production environments.</p>
+
+<h3 id="overview">Overview</h3>
+
+<p><code>bin/roda server</code> serves as the primary entry point for launching the web server on port 4000. It checks required environment configuration before booting.</p>
+
+<h3 id="usage">Usage</h3>
+
+<pre>
+<code class="language-bash">$ bin/roda server</code>
+</pre>
+
+<h3 id="environment-modes">Environment Modes</h3>
+
+<h4 id="development-mode-default">Development Mode (Default)</h4>
+<p>When <code>RACK_ENV</code> is not set to <code>production</code>, <code>bin/roda server</code> starts Puma in development mode:</p>
+
+<pre>
+<code class="language-bash">$ bin/roda server</code>
+</pre>
+
+<h4 id="production-mode">Production Mode</h4>
+<p>When <code>RACK_ENV=production</code>, <code>bin/roda server</code> enforces environment checks and enables YJIT performance optimizations:</p>
+
+<pre>
+<code class="language-bash">$ RACK_ENV=production SESSION_SECRET="your_secret" DATABASE_URL="postgres://..." bin/roda server</code>
+</pre>
+
+<ul>
+  <li><strong>Session Secret Check</strong>: Ensures <code>SESSION_SECRET</code> environment variable is defined.</li>
+  <li><strong>Database Check</strong>: Ensures <code>DATABASE_URL</code> environment variable is defined (if database is enabled).</li>
+  <li><strong>YJIT Acceleration</strong>: Launches Ruby with YJIT flags enabled (<code>RUBYOPT=--yjit RUBY_YJIT_ENABLE=1</code>) for optimal production execution speed.</li>
+</ul>
 
         </div>
       </main>

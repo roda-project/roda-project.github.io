@@ -1,0 +1,257 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="A Ruby command-line interface (CLI) tool that helps you quickly scaffold new Roda projects">
+    <!-- Use the title from a page's frontmatter if it has one -->
+    <title>Roda project / Project Structure / api-fullstack</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+    <script src="
+    https://cdn.jsdelivr.net/npm/@hotwired/turbo@8.0.23/dist/turbo.es2017-umd.min.js
+    "></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/default.min.css">
+
+    <link href="/stylesheets/docs.css" rel="stylesheet" />
+    <script src="/javascripts/docs.js"></script>
+  </head>
+  <body>
+    <a href="https://github.com/roda-project/roda-project" class="sticky-link right" target="_blank" rel="noopener noreferrer">
+      <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true">
+        <path fill="currentColor" d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.9-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.52 2.34 1.08 2.91.83.1-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.94 0-1.1.39-1.99 1.03-2.69-.1-.25-.45-1.27.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.37.2 2.39.1 2.64.64.7 1.03 1.6 1.03 2.69 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"></path>
+      </svg>
+    </a>
+
+    <input type="checkbox" id="menu-toggle" class="menu-toggle-checkbox">
+    <label for="menu-toggle" class="sidebar-overlay"></label>
+    <header class="mobile-header">
+      <label for="menu-toggle" class="hamburger" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </label>
+      <div class="mobile-title">Project Docs</div>
+    </header>
+
+    <div class="layout-wrapper">
+      <nav id="docs-sidebar" class="sidebar" data-turbo-permanent>
+        <div class="sidebar-header">
+          <a href="/">
+            <img src="/images/roda-project.png" style="width: 100%"/>
+          </a>
+          <p>v1/docs</p>
+        </div>
+
+        <div class="sidebar-content">
+          <ul class="menu-sections">
+            <li class="menu-section">
+              <ul class="section-items">
+                <li><a href='/v1/docs'>Getting Started</a></li>
+              </ul>
+            </li>
+
+            <li class="menu-section">
+              <span class="section-title">Project Structure</span>
+              <ul class="section-items">
+                <li><a href='/v1/docs/project-structure/api-fullstack' class='active'>API / Fullstack</a></li>
+                <li><a href='/v1/docs/project-structure/minimal'>Minimal</a></li>
+                <li><a href='/v1/docs/project-structure/jeremy'>--jeremy</a></li>
+              </ul>
+            </li>
+
+            <li class="menu-section">
+              <span class="section-title">CLI (bin/roda)</span>
+              <ul class="section-items">
+                <li><a href='/v1/docs/cli/generators'>generators</a></li>
+                <li><a href='/v1/docs/cli/db'>db (database)</a></li>
+                <li><a href='/v1/docs/cli/assets'>assets</a></li>
+                <li><a href='/v1/docs/cli/console'>console</a></li>
+                <li><a href='/v1/docs/cli/dev'>dev</a></li>
+                <li><a href='/v1/docs/cli/server'>server</a></li>
+              </ul>
+            </li>
+
+            <li class="menu-section">
+              <span class="section-title">External Resources</span>
+              <ul class="section-items">
+                <li>
+                  <a href="https://roda.jeremyevans.net/documentation.html" target="_blank">
+                    <div>Roda Docs</div>
+                  </a>
+                </li>
+                <li>
+                  <a href="https://sequel.jeremyevans.net/documentation.html" target="_blank">
+                    <div>Sequel Docs</div>
+                  </a>
+                </li>
+                <li>
+                  <a href="https://rodauth.jeremyevans.net/documentation.html" target="_blank">
+                    <div>Rodauth Docs</div>
+                  </a>
+                </li>
+              </ul>
+            </li>
+
+
+          </ul>
+        </div>
+      </nav>
+
+      <main class="main-content">
+        <div class="content-container">
+          <h2 id="project-structure--fullstack--api">Project Structure / Fullstack &amp; API</h2>
+
+<p>The CLI generates a clean, modular project structure designed for Roda applications, prioritizing speed, maintainability, and clean architecture.</p>
+
+<p>Below is a detailed breakdown of the files and directories in <strong>Fullstack</strong> and <strong>API</strong> project scaffolds.</p>
+
+<hr />
+
+<h3 id="project-structure-overview">Project Structure Overview</h3>
+
+<pre class="dirs">
+├── boot.rb
+├── config.ru
+├── esbuild.js          # (Fullstack only)
+├── Gemfile
+├── Guardfile
+├── package.json        # (Fullstack only)
+├── Rakefile
+├── AGENTS.md
+├── app/
+│   ├── [project_name].rb
+│   ├── assets/         # (Fullstack only)
+│   ├── config/
+│   │   ├── config.rb
+│   │   ├── locales/
+│   │   └── providers/
+│   │       ├── db/
+│   │       ├── logger.rb
+│   │       └── mailer.rb
+│   ├── models/
+│   ├── routes/
+│   └── views/          # (Fullstack only)
+├── bin/
+│   └── roda
+├── db/
+│   ├── migrations/
+│   └── seeds.rb
+├── public/
+│   ├── assets/         # (Fullstack only)
+│   ├── images/
+│   └── exception_page.css
+└── spec/
+    ├── app/
+    │   ├── models/
+    │   └── routes/
+    └── spec_helper.rb
+</pre>
+
+<hr />
+
+<h3 id="top-level-files">Top-Level Files</h3>
+
+<ul>
+  <li><strong><code>boot.rb</code></strong>: The application startup bootstrapper. It sets up <code>Bundler</code>, initializes <code>Zeitwerk</code> code autoloading for application components, and loads service providers.</li>
+  <li><strong><code>config.ru</code></strong>: The standard Rack configuration entrypoint. It configures Rack middleware (such as <code>Rack::LiveReload</code> in development) and mounts the primary Roda application.</li>
+  <li><strong><code>esbuild.js</code></strong>: <em>(Fullstack only)</em> Configuration file for <code>esbuild</code>. Handles asset bundling (JavaScript and CSS) and outputs compiled bundles to <code>public/assets/</code>.</li>
+  <li><strong><code>Gemfile</code></strong>: Defines Ruby gem dependencies partitioned by environment (<code>development</code>, <code>test</code>, <code>production</code>).</li>
+  <li><strong><code>Guardfile</code></strong>: Configures <code>Guard</code> for watching application source code changes and triggering automatic reloads or spec executions.</li>
+  <li><strong><code>package.json</code></strong>: <em>(Fullstack only)</em> Manages NPM dependencies for frontend tooling and client-side JavaScript packages.</li>
+  <li><strong><code>bin/roda</code></strong>: The CLI executable tool embedded within your project for running servers, executing migrations, running linters, and scaffolding generators.</li>
+  <li><strong><code>AGENTS.md</code></strong>: Contains project-specific rules and instructions for development guidelines and code conventions.</li>
+</ul>
+
+<hr />
+
+<h3 id="app-directory"><code>app/</code> Directory</h3>
+
+<p>Houses the core domain and routing logic of your Roda application:</p>
+
+<ul>
+  <li><strong><code>app/&lt;project_name&gt;.rb</code></strong>: The main Roda application class. Configures Roda plugins, global middleware, error handlers, and top-level route routing.</li>
+  <li><strong><code>app/assets/</code></strong>: <em>(Fullstack only)</em> Uncompiled frontend assets (CSS, JS) edited during development.</li>
+  <li><strong><code>app/config/</code></strong>: Configuration management:
+    <ul>
+      <li><strong><code>app/config/config.rb</code></strong>: Manages environment variables, application settings, database credentials, and secret keys.</li>
+      <li><strong><code>app/config/locales/</code></strong>: Stores YAML internationalization (i18n) locale files (e.g. <code>en.yml</code>, <code>pt-BR.yml</code>).</li>
+      <li><strong><code>app/config/providers/</code></strong>: Service provider initializers. A provider is a class used in the boot process for setup dependencies (or services) single instances and retrive in app logic.</li>
+    </ul>
+  </li>
+  <li><strong><code>app/models/</code></strong>: Sequel ORM model classes (e.g. <code>account.rb</code>).</li>
+  <li><strong><code>app/routes/</code></strong>: Houses Roda hash branches. Each file defines sub-routes and endpoints for modular routing logic.</li>
+  <li><strong><code>app/views/</code></strong>: <em>(Fullstack only)</em> Template directory:
+    <ul>
+      <li><strong><code>.erb</code> files</strong>: ERB template files for HTML rendering.</li>
+      <li><strong><code>html.rb</code></strong>: Functional HTML component helpers and render helpers.</li>
+    </ul>
+  </li>
+</ul>
+
+<hr />
+
+<h3 id="db-directory"><code>db/</code> Directory</h3>
+
+<p>Dedicated to database management and migrations:</p>
+
+<ul>
+  <li><strong><code>db/migrations/</code></strong>: Sequel migration files prefixed with numeric sequence numbers (e.g. <code>001_add_rodauth.rb</code>).</li>
+  <li><strong><code>db/seeds.rb</code></strong>: Data seeding script for local development and testing environments.</li>
+</ul>
+
+<hr />
+
+<h3 id="public-directory"><code>public/</code> Directory</h3>
+
+<p>Contains static assets served directly by the web server or Rack static middleware:</p>
+
+<ul>
+  <li><strong><code>public/assets/</code></strong>: Compiled frontend JavaScript and CSS bundles generated by <code>esbuild</code>.</li>
+  <li><strong><code>public/images/</code></strong>: Static images and web icons.</li>
+  <li><strong><code>public/exception_page.css</code></strong>: Styling used by Roda error pages in development mode.</li>
+</ul>
+
+<hr />
+
+<h3 id="spec-directory"><code>spec/</code> Directory</h3>
+
+<p>Contains test suites (RSpec or Minitest):</p>
+
+<ul>
+  <li><strong><code>spec/spec_helper.rb</code></strong>: Initializes the test helper environment, loads test dependencies (<code>rack-test</code>), and configures database rollback transactions around test specs.</li>
+  <li><strong><code>spec/app/</code></strong>: Contains route, model, and application logic specs mirror-structured to the <code>app/</code> folder.</li>
+</ul>
+
+        </div>
+      </main>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/ruby.min.js"></script>
+    <script>
+      hljs.highlightAll();
+
+      function updateActiveSidebarLink() {
+        // 1. Get the current page path (e.g., "/setup.html")
+        const currentPath = window.location.pathname;
+
+        // 2. Select all links inside your sidebar
+        const sidebarLinks = document.querySelectorAll('#docs-sidebar a');
+
+        sidebarLinks.forEach(link => {
+          // 3. Compare the link's path to the current URL path
+          if (link.pathname === currentPath) {
+            link.classList.add('active');
+          } else {
+            link.classList.remove('active');
+          }
+        });
+      }
+
+      // Run on initial page load AND after every Turbo navigation
+      document.addEventListener("turbo:load", updateActiveSidebarLink);
+    </script>
+  </body>
+</html>

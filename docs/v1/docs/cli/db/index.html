@@ -7,7 +7,7 @@
           content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="A Ruby command-line interface (CLI) tool that helps you quickly scaffold new Roda projects">
     <!-- Use the title from a page's frontmatter if it has one -->
-    <title>Middleman</title>
+    <title>Roda project / CLI / db</title>
     <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
@@ -43,7 +43,7 @@
           <a href="/">
             <img src="/images/roda-project.png" style="width: 100%"/>
           </a>
-          <p>cookbook/docs</p>
+          <p>v1/docs</p>
         </div>
 
         <div class="sidebar-content">
@@ -67,7 +67,7 @@
               <span class="section-title">CLI (bin/roda)</span>
               <ul class="section-items">
                 <li><a href='/v1/docs/cli/generators'>generators</a></li>
-                <li><a href='/v1/docs/cli/db'>db (database)</a></li>
+                <li><a href='/v1/docs/cli/db' class='active'>db (database)</a></li>
                 <li><a href='/v1/docs/cli/assets'>assets</a></li>
                 <li><a href='/v1/docs/cli/console'>console</a></li>
                 <li><a href='/v1/docs/cli/dev'>dev</a></li>
@@ -103,64 +103,57 @@
 
       <main class="main-content">
         <div class="content-container">
-          <p>
-  This section guides for roda project
-</p>
+          <h2 id="cli--db">CLI / db</h2>
 
-<h4> Routing </h4>
-<div class="grid">
-  <div class="m3 s4">
-    <article>
-      <h5>Title</h5>
-      <p>Some text here</p>
-    </article>
-  </div>
-  <div class="m3 s4">
-    <article>
-      <h5>Title</h5>
-      <p>Some text here</p>
-    </article>
-  </div>
-  <div class="m3 s4">
-    <article>
-      <h5>Title</h5>
-      <p>Some text here</p>
-    </article>
-  </div>
-  <div class="m3 s4">
-    <article>
-      <h5>Title</h5>
-      <p>Some text here</p>
-    </article>
-  </div>
-</div>
-<h4> Securing </h4>
-<div class="grid">
-  <div class="m3 s4">
-    <article>
-      <h5>Title</h5>
-      <p>Some text here</p>
-    </article>
-  </div>
-  <div class="m3 s4">
-    <article>
-      <h5>Title</h5>
-      <p>Some text here</p>
-    </article>
-  </div>
-  <div class="m3 s4">
-    <article>
-      <h5>Title</h5>
-      <p>Some text here</p>
-    </article>
-  </div>
-  <div class="m3 s4">
-    <article>
-      <h5>Title</h5>
-      <p>Some text here</p>
-    </article>
-  </div>
-</div>
+<p>The <code>db</code> command group provides database management tools powered by Sequel migrations. It allows you to create, drop, and migrate your database across development, test, and production environments.</p>
+
+<h3 id="binroda-db-create"><code>bin/roda db create</code></h3>
+<p>Creates the database configured in your application settings.
+*   <strong>SQLite</strong>: Creates the SQLite database file and necessary parent directories.
+*   <strong>PostgreSQL / MySQL</strong>: Executes native database creation utilities using connection info parsed from <code>Config.get[:db][:url]</code>.</p>
+
+<pre>
+<code class="language-bash">$ bin/roda db create</code>
+</pre>
+
+<h3 id="binroda-db-drop"><code>bin/roda db drop</code></h3>
+<p>Drops the application database.
+*   <strong>SQLite</strong>: Deletes the target <code>.sqlite3</code> database file if it exists.
+*   <strong>PostgreSQL / MySQL</strong>: Executes native database drop commands.</p>
+
+<pre>
+<code class="language-bash">$ bin/roda db drop</code>
+</pre>
+
+<h3 id="binroda-db-migrate"><code>bin/roda db migrate</code></h3>
+<p>Runs Sequel schema migrations located in <code>db/migrations/</code>.</p>
+
+<pre>
+<code class="language-bash">$ bin/roda db migrate [OPTIONS]</code>
+</pre>
+
+<h4 id="options">Options</h4>
+
+<ul>
+  <li><strong><code>-t</code></strong>, <strong><code>--target=N</code></strong>: Specifies a target migration version number (e.g. <code>1</code> or <code>003</code>) to migrate up or down to a specific schema version.</li>
+</ul>
+
+<h4 id="examples">Examples</h4>
+
+<p>Migrate to the latest version:</p>
+<pre>
+<code class="language-bash">$ bin/roda db migrate</code>
+</pre>
+
+<p>Migrate to target version 1:</p>
+<pre>
+<code class="language-bash">$ bin/roda db migrate -t 1</code>
+</pre>
+
+<p>Migrate test environment database:</p>
+<pre>
+<code class="language-bash">$ RACK_ENV=test bin/roda db migrate</code>
+</pre>
 
         </div>
       </main>
