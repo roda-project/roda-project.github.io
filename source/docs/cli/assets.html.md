@@ -2,7 +2,7 @@
 title: Roda project / CLI / assets
 ---
 
-## CLI / assets
+# CLI / assets
 
 The `assets` command is used in Fullstack Roda applications to compile and bundle frontend assets (JavaScript, CSS, images) managed via Node.js and `esbuild`.
 

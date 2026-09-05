@@ -2,7 +2,7 @@
 title: Roda project / CLI / dev
 ---
 
-## CLI / dev
+# CLI / dev
 
 The `dev` command launches your application in development mode with automatic file watching and application reloading using `Guard`.
 

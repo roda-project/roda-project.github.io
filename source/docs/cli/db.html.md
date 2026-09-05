@@ -2,7 +2,7 @@
 title: Roda project / CLI / db
 ---
 
-## CLI / db
+# CLI / db
 
 The `db` command group provides database management tools powered by Sequel migrations. It allows you to create, drop, and migrate your database across development, test, and production environments.
 

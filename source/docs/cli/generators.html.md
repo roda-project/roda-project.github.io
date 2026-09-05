@@ -2,7 +2,7 @@
 title: Roda project / CLI / generators
 ---
 
-## CLI / generators
+# CLI / generators
 
 The `generate` subcommand group (aliased as `g`) provides code generators to scaffold Sequel database migrations, Sequel ORM models, and Roda hash branch routes with specs and views.
 
@@ -82,7 +82,7 @@ Generates a service class in `app/services/` and a matching service spec in `spe
 <code class="language-bash">$ bin/roda g service my_service</code>
 </pre>
 
-*   **Namespaced Models**: Supports directory/module namespacing, e.g. `bin/roda g service user/create`.
+*   **Namespaced Services**: Supports directory/module namespacing, e.g. `bin/roda g service user/create`.
 *   **Service types**: We can choose if the generated service will be a class or module with `bin/roda g service <type> <name>` (defaults to class). Example:
 
 <pre>

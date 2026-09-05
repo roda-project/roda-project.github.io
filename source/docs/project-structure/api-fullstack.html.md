@@ -2,7 +2,7 @@
 title: Roda project / Project Structure / api-fullstack
 ---
 
-## Project Structure / Fullstack & API
+# Project Structure / Fullstack & API
 
 The CLI generates a clean, modular project structure designed for Roda applications, prioritizing speed, maintainability, and clean architecture.
 
@@ -10,7 +10,7 @@ Below is a detailed breakdown of the files and directories in **Fullstack** and 
 
 ---
 
-### Project Structure Overview
+###<i class="fa-solid fa-folder-open"></i> Project Structure Overview
 
 <pre class="dirs">
 ├── boot.rb
@@ -52,7 +52,7 @@ Below is a detailed breakdown of the files and directories in **Fullstack** and 
 
 ---
 
-### Top-Level Files
+###<i class="fa-solid fa-file"></i> Top-Level Files
 
 *   **`boot.rb`**: The application startup bootstrapper. It sets up `Bundler`, initializes `Zeitwerk` code autoloading for application components, and loads service providers.
 *   **`config.ru`**: The standard Rack configuration entrypoint. It configures Rack middleware (such as `Rack::LiveReload` in development) and mounts the primary Roda application.
@@ -65,7 +65,7 @@ Below is a detailed breakdown of the files and directories in **Fullstack** and 
 
 ---
 
-### `app/` Directory
+###<i class="fa-solid fa-folder-open"></i> `app/` Directory
 
 Houses the core domain and routing logic of your Roda application:
 
@@ -83,7 +83,7 @@ Houses the core domain and routing logic of your Roda application:
 
 ---
 
-### `db/` Directory
+###<i class="fa-solid fa-folder-open"></i> `db/` Directory
 
 Dedicated to database management and migrations:
 
@@ -92,7 +92,7 @@ Dedicated to database management and migrations:
 
 ---
 
-### `public/` Directory
+###<i class="fa-solid fa-folder-open"></i> `public/` Directory
 
 Contains static assets served directly by the web server or Rack static middleware:
 
@@ -102,7 +102,7 @@ Contains static assets served directly by the web server or Rack static middlewa
 
 ---
 
-### `spec/` Directory
+###<i class="fa-solid fa-folder-open"></i> `spec/` Directory
 
 Contains test suites (RSpec or Minitest):
 

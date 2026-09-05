@@ -2,13 +2,13 @@
 title: Roda project / Project Structure / minimal
 ---
 
-## Project Structure / Minimal
+# Project Structure / Minimal
 
 The **Minimal** scaffold option creates a bare-bones, ultra-lightweight Roda application. It is ideal for microservices, tiny APIs, single-file prototypes, or applications where you want complete control without additional directory setup or ORM overhead.
 
 ---
 
-### Project Structure Overview
+###<i class="fa-solid fa-folder-open"></i> Project Structure Overview
 
 <pre class="dirs">
 ├── boot.rb
@@ -29,7 +29,7 @@ The **Minimal** scaffold option creates a bare-bones, ultra-lightweight Roda app
 
 ---
 
-### Key Components
+###<i class="fa-solid fa-folder-open"></i> Key Components
 
 *   **`boot.rb`**: Initializes Bundler and sets up the minimal Ruby load environment.
 *   **`config.ru`**: standard Rack entry point that mounts your Roda app (`run MyApp`).

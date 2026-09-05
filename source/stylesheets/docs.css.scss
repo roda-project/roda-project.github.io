@@ -14,7 +14,7 @@
   --hover-bg: #262626;        /* Lighter grey for hover states */
 
   /* Layout variables */
-  --sidebar-width: 280px;
+  --sidebar-width: 297px;
   --header-height: 60px;
 }
 
@@ -52,6 +52,19 @@ pre.dirs {
   white-space: pre;
   margin-block: 1em 1em;
   margin-inline: 0px;
+}
+
+/* Hide standard pre/code combinations before they are styled */
+pre code:not(.hljs) {
+  visibility: hidden;
+  opacity: 0;
+}
+
+/* Smoothly reveal it once the highlight class is present */
+pre code.hljs {
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 0.2s ease-in;
 }
 
 ul {
@@ -210,6 +223,7 @@ ul {
   background-color: var(--accent-bg);
   border-right: 3px solid var(--accent-color);
   font-weight: 500;
+  pointer-events: none;
 }
 
 /* --- 6. Content Area --- */
@@ -230,9 +244,11 @@ ul {
 }
 
 .content-container h1 {
-  font-size: 2.5rem;
+  font-size: 2rem;
   margin-bottom: 1rem;
   color: var(--text-primary);
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 0.5rem;
 }
 
 .content-container h2 {

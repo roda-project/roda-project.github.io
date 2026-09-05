@@ -2,7 +2,7 @@
 title: Roda project / CLI / server
 ---
 
-## CLI / server
+# CLI / server
 
 The `server` command (aliased as `s`) boots the Puma web server to run your Roda application in either development or production environments.
 

@@ -4,7 +4,7 @@ title: Roda project - Getting Started
 
 <h1 class="visually-hidden"> Roda Project </h1>
 
-## Getting Started
+# Getting Started
 
 [![Gem Version](https://badge.fury.io/rb/roda-project.svg)](https://badge.fury.io/rb/roda-project)
 [![CI](https://github.com/roda-project/roda-project/actions/workflows/main.yml/badge.svg)](https://github.com/roda-project/roda-project/actions/workflows/main.yml)

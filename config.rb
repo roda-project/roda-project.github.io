@@ -35,16 +35,19 @@ page '/*.txt', layout: false
 helpers do
   def sidebar_link(path, description)
     if current_page.url == "#{path}/"
-      return "<li><a href='#{path}' class='active'>#{description}</a></li>"
+      return "<li><a href='#{path}' class='active' data-turbo-frame='content-container' data-turbo-action='advance'>#{description}</a></li>"
     end
 
-    "<li><a href='#{path}'>#{description}</a></li>"
+    "<li><a href='#{path}' data-turbo-frame='content-container' data-turbo-action='advance'>#{description}</a></li>"
   end
 
-  def current_docs_api_version
+  def current_docs_api_version_path
     # current_page.url => "/v1/docs/"
     # .split('/') => ["", "v1", "docs"]
-    current_page.url.split('/')[1]
+    version = current_page.url.split('/')[1]
+    return "/#{version}" if version.start_with?("v")
+
+    ""
   end
 end
 

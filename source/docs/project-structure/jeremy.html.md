@@ -2,7 +2,7 @@
 title: Roda project / Project Structure / --jeremy
 ---
 
-## Project Structure / --jeremy
+# Project Structure / --jeremy
 
 We can create new projects using the `--jeremy` flag:
 
