@@ -6,7 +6,7 @@ title: Roda project / CLI / generators
 
 The `generate` subcommand group (aliased as `g`) provides code generators to scaffold Sequel database migrations, Sequel ORM models, and Roda hash branch routes with specs and views.
 
-### `bin/roda g routes <branch_name> [route_name:method...]`
+###<i class="fa-solid fa-terminal"></i> `bin/roda g routes <branch_name> [route_name:method...]`
 
 Scaffolds a Roda hash branch file in `app/routes/`, matching spec files in `spec/app/routes/`, and ERB views in `app/views/` (for GET routes in fullstack projects).
 
@@ -61,7 +61,7 @@ end
 
 ---
 
-### `bin/roda g model <name> [field:type...]`
+###<i class="fa-solid fa-terminal"></i> `bin/roda g model <name> [field:type...]`
 
 Generates a Sequel ORM model class in `app/models/`, a matching model spec in `spec/app/models/`, and a corresponding Sequel migration file in `db/migrations/`.
 
@@ -74,7 +74,7 @@ Generates a Sequel ORM model class in `app/models/`, a matching model spec in `s
 
 ---
 
-### `bin/roda g service <name>`
+###<i class="fa-solid fa-terminal"></i> `bin/roda g service <name>`
 
 Generates a service class in `app/services/` and a matching service spec in `spec/app/services/`.
 
@@ -91,7 +91,7 @@ Generates a service class in `app/services/` and a matching service spec in `spe
 
 ---
 
-### `bin/roda g migration <name> [field:type...]`
+###<i class="fa-solid fa-terminal"></i> `bin/roda g migration <name> [field:type...]`
 
 Creates a timestamped Sequel migration file under `db/migrations/`.
 
