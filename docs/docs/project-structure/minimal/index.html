@@ -149,27 +149,41 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/ruby.min.js"></script>
       </turbo-frame>
-      <script>
-        function updateActiveSidebarLink() {
-          // 1. Get the current page path (e.g., "/setup.html")
-          const currentPath = window.location.pathname;
+    <script>
+      function updateActiveSidebarLink() {
+        const currentPath = window.location.pathname;
+        const sidebarLinks = document.querySelectorAll('#docs-sidebar a');
 
-          // 2. Select all links inside your sidebar
-          const sidebarLinks = document.querySelectorAll('#docs-sidebar a');
+        sidebarLinks.forEach(link => {
+          if (link.pathname.replace(/\/$/, "") === currentPath.replace(/\/$/, "")) {
+            link.classList.add('active');
+          } else {
+            link.classList.remove('active');
+          }
+        });
+      }
 
-          sidebarLinks.forEach(link => {
-            // 3. Compare the link's path to the current URL path
-            if (link.pathname.replace(/\/$/, "") === currentPath.replace(/\/$/, "")) {
-              link.classList.add('active');
-            } else {
-              link.classList.remove('active');
-            }
-          });
+      // 1. Close the mobile menu when clicking any link inside the sidebar
+      document.addEventListener('click', (e) => {
+        if (e.target.closest('#docs-sidebar a')) {
+          const menuToggle = document.getElementById('menu-toggle');
+          if (menuToggle && menuToggle.checked) {
+            menuToggle.checked = false;
+          }
         }
+      });
 
-        // Run on initial page load AND after every Turbo navigation
-        document.addEventListener("turbo:load", updateActiveSidebarLink);
-        document.addEventListener("turbo:load", hljs.highlightAll);
-      </script>
+      // 2. Update active states and highlight code on both full page loads AND frame navigations
+      document.addEventListener("turbo:load", () => {
+        updateActiveSidebarLink();
+        hljs.highlightAll();
+      });
+
+      // Turbo frames don't always fire "turbo:load", so we listen for frame loads too
+      document.addEventListener("turbo:frame-load", () => {
+        updateActiveSidebarLink();
+        hljs.highlightAll();
+      });
+    </script>
   </body>
 </html>
