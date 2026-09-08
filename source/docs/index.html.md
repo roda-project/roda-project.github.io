@@ -22,7 +22,7 @@ title: Roda project - Getting Started
 - Code autoloading with Zeitwerk
 - Hot reloading
 - Pre-configured with i18n and other essential plugins
-- High performance: Get the job done without sacrificing performance. Even with multiple plugins, <a href="https://www.truehenrique.com/en/2026/09/08/why-this-is-one-of-the-best-alternatives-to-ruby-on-rails" target="_blank"/>Roda is 4x faster than Rails and 2x faster than Hanami, while consuming less memory than both.</a>
+- High performance: Get the job done without sacrificing performance. Even with multiple plugins, <a href="https://www.truehenrique.com/en/2026/09/08/why-this-is-one-of-the-best-alternatives-to-ruby-on-rails" target="_blank">Roda can be 4x faster than Rails and 2x faster than Hanami</a>, while consuming less memory than both.
 - Production-ready
 
 ---
