@@ -30,14 +30,14 @@ end
 </code>
 </pre>
 
-*   **Route Specifications**: Format routes as `name:method` (e.g., `users:get`, `create:post`). Default method is `get`.
-*   **Nested Branches**: Supports nested paths (e.g. `api/v1`). Provides helper reminders for loading nested hash branches with `autoload_hash_branch_dir`.
+*   **Route Specifications**: Format routes as `method:name` (e.g., `get:users`, `post:create`).
+*   **Nested Branches**: Supports nested paths (e.g. `api/v1`).
 *   **Options**: Use `--no-views` to skip view template creation.
 
 In some cases, we dont need to name a path inside a hash_branch, so we can explicity generate it with this syntax: 
 
 <pre>
-<code class="language-bash">$ bin/roda g routes books :get :post :delete</code>
+<code class="language-bash">$ bin/roda g routes books get post delete</code>
 </pre>
 
 result:

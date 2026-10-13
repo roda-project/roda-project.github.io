@@ -134,15 +134,15 @@ end
 </pre>
 
 <ul>
-  <li><strong>Route Specifications</strong>: Format routes as <code>name:method</code> (e.g., <code>users:get</code>, <code>create:post</code>). Default method is <code>get</code>.</li>
-  <li><strong>Nested Branches</strong>: Supports nested paths (e.g. <code>api/v1</code>). Provides helper reminders for loading nested hash branches with <code>autoload_hash_branch_dir</code>.</li>
+  <li><strong>Route Specifications</strong>: Format routes as <code>method:name</code> (e.g., <code>get:users</code>, <code>post:create</code>).</li>
+  <li><strong>Nested Branches</strong>: Supports nested paths (e.g. <code>api/v1</code>).</li>
   <li><strong>Options</strong>: Use <code>--no-views</code> to skip view template creation.</li>
 </ul>
 
 <p>In some cases, we dont need to name a path inside a hash_branch, so we can explicity generate it with this syntax:</p>
 
 <pre>
-<code class="language-bash">$ bin/roda g routes books :get :post :delete</code>
+<code class="language-bash">$ bin/roda g routes books get post delete</code>
 </pre>
 
 <p>result:</p>
