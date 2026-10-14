@@ -11,7 +11,7 @@ The `generate` subcommand group (aliased as `g`) provides code generators to sca
 Scaffolds a Roda hash branch file in `app/routes/`, matching spec files in `spec/app/routes/`, and ERB views in `app/views/` (for GET routes in fullstack projects).
 
 <pre>
-<code class="language-bash">$ bin/roda g routes admin users:get posts:post</code>
+<code class="language-bash">$ bin/roda g routes admin get:users post:posts</code>
 </pre>
 
 result:
