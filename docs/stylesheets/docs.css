@@ -241,7 +241,7 @@ ul {
   font-size: 2rem;
   margin-bottom: 1rem;
   color: var(--text-primary);
-  border-bottom: 1px solid var(--border-color);
+  border-bottom: 3px solid var(--border-color);
   padding-bottom: 0.5rem; }
 
 .content-container h2 {

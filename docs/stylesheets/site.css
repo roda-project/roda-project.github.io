@@ -3,9 +3,11 @@
   --ruby-red: #cc342d;
   --ruby-red-hover: #a72822;
   --text-dark: #111827;
-  --text-muted: #4b5563;
+  --text-white: #ffffff;
+  --text-muted: #ffe4e4;
   --bg-light: #f9fafb;
   --bg-white: #ffffff;
+  --bg-dark-red: #0d0000;
   --code-bg: #1f2937; }
 
 * {
@@ -16,8 +18,8 @@
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
 
 body {
-  background-color: var(--bg-light);
-  color: var(--text-dark);
+  background-color: var(--bg-dark-red);
+  color: var(--text-white);
   line-height: 1.6; }
 
 a {
@@ -98,7 +100,7 @@ header {
   align-items: center; }
 
 .hero-content h1 {
-  font-size: 2.14rem;
+  font-size: 2.44rem;
   line-height: 1.1;
   margin-bottom: 1.5rem;
   letter-spacing: -0.02em; }
@@ -192,7 +194,7 @@ footer {
   text-align: center;
   padding: 3rem 2rem;
   color: var(--text-muted);
-  border-top: 1px solid #e5e7eb;
+  border-top: 1px solid #493030;
   margin-top: 1rem; }
 
 /* --- Responsive Design --- */
