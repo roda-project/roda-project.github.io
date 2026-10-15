@@ -4,7 +4,6 @@
   --ruby-red-hover: #a72822;
   --text-dark: #111827;
   --text-white: #ffffff;
-  --text-muted: #ffe4e4;
   --bg-light: #f9fafb;
   --bg-white: #ffffff;
   --bg-dark-red: #0d0000;
@@ -110,7 +109,7 @@ header {
 
 .hero-content p {
   font-size: 1.25rem;
-  color: var(--text-muted);
+  color: var(--text-white);
   margin-bottom: 2.5rem; }
 
 .cta-group {
@@ -193,7 +192,7 @@ header {
 footer {
   text-align: center;
   padding: 3rem 2rem;
-  color: var(--text-muted);
+  color: var(--text-white);
   border-top: 1px solid #493030;
   margin-top: 1rem; }
 
