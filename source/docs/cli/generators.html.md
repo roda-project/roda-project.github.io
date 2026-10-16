@@ -20,7 +20,9 @@ result:
 <code class="language-ruby">class Awd                   
   hash_branch "admin" do |r|
     r.get "users" do        
-      view('users') # view app/views/admin/users.erb also created         
+      # view app/views/books/index.erb also created. 
+      # if inertia.js enabled, it generates `inertia('admin/Users')`
+      view('users')
     end                     
                             
     r.post "posts" do       
@@ -46,7 +48,7 @@ result:
 <code class="language-ruby">class Awd                   
   hash_branch "books" do |r|
     r.get do                
-      view('index') # view app/views/books/index.erb also created         
+      view('index')         
     end                     
                             
     r.post do               

@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="A Ruby command-line interface (CLI) tool that helps you quickly scaffold new Roda projects">
+    <!-- Use the title from a page's frontmatter if it has one -->
+    <title>Roda project / Project Structure / api-fullstack</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css" integrity="sha512-QeR2VH+lsBE5LSAe1Q5EnTBbe7XTBubt8dG93Y7gidSgdMCr8nVqKcfKAMyN96SV8KDbZVTDXChatu5G2KQGzg==" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <script src="
+    https://cdn.jsdelivr.net/npm/@hotwired/turbo@8.0.23/dist/turbo.es2017-umd.min.js
+    "></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/default.min.css">
+
+    <link href="/stylesheets/docs.css" rel="stylesheet" />
+    <script src="/javascripts/docs.js"></script>
+  </head>
+  <body>
+    <a href="https://github.com/roda-project/roda-project" class="sticky-link right" target="_blank" rel="noopener noreferrer">
+      <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true">
+        <path fill="currentColor" d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.9-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.52 2.34 1.08 2.91.83.1-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.94 0-1.1.39-1.99 1.03-2.69-.1-.25-.45-1.27.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.37.2 2.39.1 2.64.64.7 1.03 1.6 1.03 2.69 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"></path>
+      </svg>
+    </a>
+
+    <input type="checkbox" id="menu-toggle" class="menu-toggle-checkbox">
+    <label for="menu-toggle" class="sidebar-overlay"></label>
+    <header class="mobile-header">
+      <label for="menu-toggle" class="hamburger" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </label>
+      <div class="mobile-title">Roda Project</div>
+    </header>
+
+    <div class="layout-wrapper">
+      <nav id="docs-sidebar" class="sidebar" data-turbo-permanent>
+        <div class="sidebar-header">
+          <a href="/">
+            <img src="/images/roda-project.png" style="width: 100%"/>
+          </a>
+          <p>/docs</p>
+        </div>
+
+        <div class="sidebar-content">
+          <ul class="menu-sections">
+            <li class="menu-section">
+              <ul class="section-items">
+                <li><a href='/docs' data-turbo-frame='content-container' data-turbo-action='advance'>Getting Started</a></li>
+              </ul>
+            </li>
+
+            <li class="menu-section">
+              <span class="section-title"><i class="fa-solid fa-folder-open"></i> Project Structure</span>
+              <ul class="section-items">
+                <li><a href='/docs/project-structure/api-fullstack' data-turbo-frame='content-container' data-turbo-action='advance'>API / Fullstack</a></li>
+                <li><a href='/docs/project-structure/fullstack-inertia' class='active' data-turbo-frame='content-container' data-turbo-action='advance'>Fullstack (Inertia.js)</a></li>
+                <li><a href='/docs/project-structure/minimal' data-turbo-frame='content-container' data-turbo-action='advance'>Minimal</a></li>
+                <li><a href='/docs/project-structure/jeremy' data-turbo-frame='content-container' data-turbo-action='advance'>--jeremy</a></li>
+              </ul>
+            </li>
+
+            <li class="menu-section">
+              <span class="section-title"><i class="fa-solid fa-terminal"></i> CLI (bin/roda)</span>
+              <ul class="section-items">
+                <li><a href='/docs/cli/generators' data-turbo-frame='content-container' data-turbo-action='advance'>generators</a></li>
+                <li><a href='/docs/cli/db' data-turbo-frame='content-container' data-turbo-action='advance'>db (database)</a></li>
+                <li><a href='/docs/cli/assets' data-turbo-frame='content-container' data-turbo-action='advance'>assets</a></li>
+                <li><a href='/docs/cli/console' data-turbo-frame='content-container' data-turbo-action='advance'>console</a></li>
+                <li><a href='/docs/cli/dev' data-turbo-frame='content-container' data-turbo-action='advance'>dev</a></li>
+                <li><a href='/docs/cli/server' data-turbo-frame='content-container' data-turbo-action='advance'>server</a></li>
+              </ul>
+            </li>
+
+            <li class="menu-section">
+              <span class="section-title"><i class="fa-solid fa-link"></i> External Resources</span>
+              <ul class="section-items">
+                <li>
+                  <a href="https://roda.jeremyevans.net/documentation.html" target="_blank">
+                    <div>Roda Docs</div>
+                  </a>
+                </li>
+                <li>
+                  <a href="https://sequel.jeremyevans.net/documentation.html" target="_blank">
+                    <div>Sequel Docs</div>
+                  </a>
+                </li>
+                <li>
+                  <a href="https://rodauth.jeremyevans.net/documentation.html" target="_blank">
+                    <div>Rodauth Docs</div>
+                  </a>
+                </li>
+              </ul>
+            </li>
+
+
+          </ul>
+        </div>
+      </nav>
+
+      <turbo-frame id="content-container">
+        <main class="main-content">
+          <div class="content-container">
+            <h1 id="project-structure--fullstack-inertiajs">Project Structure / Fullstack (Inertia.js)</h1>
+
+<p>When creating a fullstack project and selecting the Inertia frontend option, the <a href="https://github.com/henrique-ft/roda-inertia-lite" target="_blank">roda-inertia-lite</a> plugin is added, and the <code>assets</code> directory has the following structure:</p>
+
+<hr />
+
+<h3 id="i-classfa-solid-fa-folder-openi-assets"><i class="fa-solid fa-folder-open"></i> Assets</h3>
+
+<pre class="dirs">
+app/
+└── assets/
+    └── js/
+        ├── inertia/
+        │    ├── components/
+        │    └── views/
+        │        └── foo.jsx
+        └── app.js
+</pre>
+
+<hr />
+
+<h3 id="i-classfa-solid-fa-folder-openi-key-components"><i class="fa-solid fa-folder-open"></i> Key Components</h3>
+
+<ul>
+  <li><strong><code>app/assets/js/app.js</code></strong>: This is where Inertia is initialized.</li>
+  <li><strong><code>app/assets/js/inertia/</code></strong>: This directory contains all the files for the Inertia.js application.</li>
+  <li><strong><code>app/assets/js/inertia/view/</code></strong>: This is the directory where Inertia looks for pages (or views). In routes, files within this directory are referenced using the <code>inertia</code> method, e.g.:</li>
+</ul>
+
+<pre>
+<code class="language-ruby"># app/routes/admin.rb
+class Awd                   
+  hash_branch "admin" do |r|
+    r.get "users" do        
+      inertia('admin/Users', { users: User.all }) # call app/assets/js/inertia/views/admin/Users.jsx
+    end                       
+  end                         
+end
+</code>
+</pre>
+
+          </div>
+        </main>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/ruby.min.js"></script>
+      </turbo-frame>
+    <script>
+      function updateActiveSidebarLink() {
+        const currentPath = window.location.pathname;
+        const sidebarLinks = document.querySelectorAll('#docs-sidebar a');
+
+        sidebarLinks.forEach(link => {
+          if (link.pathname.replace(/\/$/, "") === currentPath.replace(/\/$/, "")) {
+            link.classList.add('active');
+          } else {
+            link.classList.remove('active');
+          }
+        });
+      }
+
+      // 1. Close the mobile menu when clicking any link inside the sidebar
+      document.addEventListener('click', (e) => {
+        if (e.target.closest('#docs-sidebar a')) {
+          const menuToggle = document.getElementById('menu-toggle');
+          if (menuToggle && menuToggle.checked) {
+            menuToggle.checked = false;
+          }
+        }
+      });
+
+      // 2. Update active states and highlight code on both full page loads AND frame navigations
+      document.addEventListener("turbo:load", () => {
+        updateActiveSidebarLink();
+        hljs.highlightAll();
+      });
+
+      // Turbo frames don't always fire "turbo:load", so we listen for frame loads too
+      document.addEventListener("turbo:frame-load", () => {
+        updateActiveSidebarLink();
+        hljs.highlightAll();
+      });
+    </script>
+  </body>
+</html>
