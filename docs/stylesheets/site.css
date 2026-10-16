@@ -7,7 +7,7 @@
   --bg-light: #f9fafb;
   --bg-white: #ffffff;
   --bg-dark-red: #0d0000;
-  --code-bg: #1f2937; }
+  --code-bg: #161616; }
 
 * {
   margin: 0;
@@ -153,7 +153,7 @@ header {
           box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04); }
 
 .terminal-header {
-  background-color: #374151;
+  background-color: #848484;
   padding: 0.75rem 1rem;
   display: flex;
   gap: 0.5rem; }
@@ -188,6 +188,95 @@ header {
   margin-bottom: 1.5rem;
   display: block; }
 
+/* --- Whys Section --- */
+.whys {
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 2rem 2rem;
+  border-top: 1px solid #493030; }
+
+.whys-header {
+  text-align: center;
+  margin-bottom: 3rem; }
+
+.whys-header h2 {
+  font-size: 2.44rem;
+  letter-spacing: -0.02em;
+  margin-bottom: 1rem; }
+
+.whys-header h2 span {
+  color: var(--ruby-red); }
+
+.whys-header p {
+  font-size: 1.25rem;
+  color: #d1d5db; }
+
+.whys-grid {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[3];
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem; }
+
+.why-pane {
+  background-color: rgba(255, 255, 255, 0.03);
+  border: 1px solid #493030;
+  border-radius: 8px;
+  padding: 2rem;
+  -webkit-transition: border-color 0.2s ease, -webkit-transform 0.2s ease;
+  transition: border-color 0.2s ease, -webkit-transform 0.2s ease;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+  transition: transform 0.2s ease, border-color 0.2s ease, -webkit-transform 0.2s ease; }
+
+.why-pane:hover {
+  -webkit-transform: translateY(-4px);
+          transform: translateY(-4px);
+  border-color: var(--ruby-red); }
+
+.why-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 8px;
+  background-color: rgba(204, 52, 45, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+  color: var(--ruby-red); }
+
+.why-icon svg {
+  width: 24px;
+  height: 24px; }
+
+.why-pane h3 {
+  font-size: 1.35rem;
+  margin-bottom: 0.75rem; }
+
+.why-pane p {
+  color: #d1d5db;
+  font-size: 1rem;
+  margin-bottom: 1rem; }
+
+.why-pane ul {
+  list-style: none; }
+
+.why-pane ul li {
+  color: #d1d5db;
+  font-size: 1rem;
+  padding-left: 1.25rem;
+  position: relative;
+  margin-bottom: 0.5rem; }
+
+.why-pane ul li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.65em;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: var(--ruby-red); }
+
 /* --- Footer --- */
 footer {
   text-align: center;
@@ -210,4 +299,7 @@ footer {
     flex-direction: column; }
   .nav-links .docs-link {
     display: none;
-    /* Hide text link on very small screens, keep github */ } }
+    /* Hide text link on very small screens, keep github */ }
+  .whys-grid {
+    -ms-grid-columns: 1fr;
+    grid-template-columns: 1fr; } }

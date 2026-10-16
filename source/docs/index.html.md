@@ -10,7 +10,7 @@ title: Roda project - Getting Started
 [![CI](https://github.com/roda-project/roda-project/actions/workflows/main.yml/badge.svg)](https://github.com/roda-project/roda-project/actions/workflows/main.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-**`roda-project`** is a command-line interface (CLI) tool designed to quickly scaffold scalable, modern <a href="https://roda.jeremyevans.net/" target="_blank">Roda</a> web applications and APIs.
+**`roda-project`** is a command-line interface (CLI) that helps you and LLMs quickly build and develop web applications and APIs using <a class="text-a" href="https://roda.jeremyevans.net/" target="_blank">Roda</a>, at any scale.
 
 #### ✨ Benefits
 - Quick setup customized to your preferences (database, project type, test framework)
@@ -49,7 +49,7 @@ The CLI will prompt you to select your application options:
 
 1. **Project Name**: Enter the directory and app name (e.g. `my_app`).
 2. **Architecture**:
-   * **Fullstack**: Includes views (ERB), asset pipeline (`esbuild`), and full web frontend setup.
+   * **Fullstack**: Includes views (ERB or Inertia.js), asset pipeline (`esbuild`), and full web frontend setup.
    * **API**: Lightweight JSON-focused structure.
    * **Minimal**: Bare-bones single-file Roda application.
 3. **Testing Framework**: Choose between **RSpec** or **Minitest**.

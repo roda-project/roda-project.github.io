@@ -36,7 +36,7 @@
       <section class="hero">
   <div class="hero-content">
     <h1>Where <span>performance</span> meets <span>productivity</span>.</h1>
-    <p><b>roda-project</b> is a command-line interface (CLI) tool that helps you quickly scaffold new <a class="text-a" href="https://roda.jeremyevans.net/" target="_blank">Roda</a> web applications or API's, for any scale.</p>
+    <p><b>roda-project</b> is a command-line interface (CLI) that helps you and LLMs quickly build and develop web applications and APIs using <a class="text-a" href="https://roda.jeremyevans.net/" target="_blank">Roda</a>, at any scale.</p>
 
     <div class="cta-group">
       <a href="/docs" class="btn-primary" data-turbo="false">Read the Docs</a>
@@ -52,10 +52,120 @@
     </div>
     <div class="terminal-body">
       <span class="prompt">gem install roda-project</span>
-      <span class="output">Successfully installed roda-project<br>1 gem installed</span>
+      <span class="output">Successfully installed roda-project</span>
 
       <span class="prompt">roda-project</span>
-      <span class="output">Project name › My awesome idea</span>
+      <span class="output">
+        Project name › AwesomeIdea <br>
+        (1) Fullstack (2) API (3) Minimal › 1<br>
+        ...
+      </span>
+
+      <span class="prompt">bin/roda dev</span>
+      <span class="output">12:05:39 - INFO - Puma starting on port 4000 in development environment.</span>
+    </div>
+  </div>
+</section>
+
+<section class="whys">
+  <div class="whys-header">
+    <h2>Why use <span>Roda</span> + <span>roda-project</span>?</h2>
+    <p>Built for developers who care about performance without giving up productivity and Ruby ❤️ </p>
+  </div>
+
+  <div class="whys-grid">
+    <div class="why-pane">
+      <div class="why-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+          <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+          <line x1="12" y1="22.08" x2="12" y2="12"></line>
+        </svg>
+      </div>
+      <h3>Full featured</h3>
+      <p>Roda has more than 100 native plugins for any aspect of web development and also community plugins, like:</p>
+      <ul>
+        <li>Authentication (Rodauth)</li>
+        <li>Security (CSRF, CSP)</li>
+        <li>Frontend (views, Inertia.js, i18n, assets)</li>
+      </ul>
+    </div>
+
+    <div class="why-pane">
+      <div class="why-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+        </svg>
+      </div>
+      <h3>Performance</h3>
+      <p>Roda is one of the fastest Ruby framework available and use less memory.</p>
+      <ul>
+        <li>Select only the plugins that your app will use, avoid unecessary code</li>
+        <li>Ideal for high traffic applications</li>
+        <li>Ideal for low budget projects</li>
+      </ul>
+    </div>
+
+    <div class="why-pane">
+      <div class="why-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+          <polyline points="22 4 12 14.01 9 11.01"></polyline>
+        </svg>
+      </div>
+      <h3>Production Ready</h3>
+      <p>Roda is a solid choice for companies already using Ruby that want to extract maximum performance with low memory consumption.</p>
+      <ul>
+        <li>It has been around for over 10 years</li>
+        <li>More than 20 million downloads</li>
+        <li>Currently, major projects use the framework in production, like Ubicloud</li>
+      </ul>
+    </div>
+
+    <div class="why-pane">
+      <div class="why-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="4 17 10 11 4 5"></polyline>
+          <line x1="12" y1="19" x2="20" y2="19"></line>
+        </svg>
+      </div>
+      <h3>Dev Experience</h3>
+      <p>With roda-project, essential development tasks are built into every generated project:</p>
+      <ul>
+        <li>Console and database migrations</li>
+        <li><code>bin/roda dev</code> with hot reloading</li>
+        <li>Assets pipeline</li>
+      </ul>
+    </div>
+
+    <div class="why-pane">
+      <div class="why-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>
+          <polyline points="17 6 23 6 23 12"></polyline>
+        </svg>
+      </div>
+      <h3>Generators</h3>
+      <p>Save tokens and help your Harness generate a more deterministic and accurate Roda code. Some generators included:</p>
+      <ul>
+        <li>bin/roda g routes</li>
+        <li>bin/roda g model</li>
+        <li>bin/roda g migrations</li>
+      </ul>
+    </div>
+
+    <div class="why-pane">
+      <div class="why-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="12" y1="1" x2="12" y2="23"></line>
+          <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+        </svg>
+      </div>
+      <h3>Focus on your business</h3>
+      <p>Use Roda, but without worring about all initial boilerplate, just choose your favorite tools and start writting business rules.</p>
+      <ul>
+        <li>Choose the project type (API, fullstack or minimal), the database, the test framework, authentication and front-end strategy</li>
+      </ul>
     </div>
   </div>
 </section>
