@@ -387,6 +387,13 @@ ul {
 
 /* ------------- CODE THEME -------------- */
 
+code {
+  background: #000000;
+  padding: 0.3em;
+  color: white;
+  border: 1px solid #1d1d1d;
+}
+
 .hljs
  {
     background: #171717;
@@ -415,4 +422,17 @@ ul {
 .hljs-link, .hljs-operator, .hljs-regexp, .hljs-selector-attr, .hljs-selector-pseudo, .hljs-symbol, .hljs-template-variable, .hljs-variable
  {
     color: #f92672;
+}
+
+/* ------------- TABLES -------------- */
+
+table th,
+table td {
+  padding: .5em;
+  text-align: left;
+}
+table tbody > :nth-child(2n-1) {
+  /* We use tbody to ensure that we don't shade the heading - this preserves the order of the shading */
+  background: #1e1e1e;
+  /* Shade every other table row */
 }
