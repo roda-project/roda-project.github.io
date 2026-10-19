@@ -42,13 +42,20 @@ hr {
   margin: 1em 0em;
   border: 1px dotted #252525; }
 
-h3 {
-  margin-bottom: 1em; }
+h2, h3, h4, p:has(> strong), p:has(+ pre) {
+  margin: 1em 0em; }
 
 #content-container {
   display: block;
   flex-grow: 1;
   min-width: 0; }
+
+pre:not(:has(code)) {
+  background-color: #000000;
+  padding: 1em;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content; }
 
 pre.dirs {
   color: var(--text-primary);
@@ -366,6 +373,9 @@ code {
   background: #171717;
   color: #dcdcdc; }
 
+.hljs-tag .hljs-attr, .hljs-tag .hljs-name {
+  color: #897272; }
+
 .hljs-section, .hljs-title {
   color: #f3d90d;
   font-weight: normal; }
@@ -382,6 +392,9 @@ code {
 
 .hljs-link, .hljs-operator, .hljs-regexp, .hljs-selector-attr, .hljs-selector-pseudo, .hljs-symbol, .hljs-template-variable, .hljs-variable {
   color: #f92672; }
+
+.hljs-punctuation, .hljs-tag {
+  color: white; }
 
 /* ------------- TABLES -------------- */
 table th,

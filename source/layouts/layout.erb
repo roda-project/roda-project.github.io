@@ -80,17 +80,12 @@
               </ul>
             </li>
 
-            <%#<li class="menu-section">%>
-              <%#<span class="section-title"><i class="fa-solid fa-file-lines"></i> Cheat sheet</span>%>
-              <%#<ul class="section-items">%>
-                <%#<%= sidebar_link("#{current_docs_api_version_path}/docs/cheat-sheet/rodauth", "Rodauth") %>
-                <%#<li><a href="#">CSRF</a></li>%>
-                <%#<li><a href="#">Routing</a></li>%>
-                <%#<li><a href="#">I18n</a></li>%>
-                <%#<li><a href="#">Inertia JS</a></li>%>
-                <%#<li><a href="#">Assets (JS / CSS)</a></li>%>
-              <%#</ul>%>
-            <%#</li>%>
+            <li class="menu-section">
+              <span class="section-title"><i class="fa-solid fa-book-open"></i> Digging Deeper</span>
+              <ul class="section-items">
+                <%= sidebar_link("#{current_docs_api_version_path}/docs/digging-deeper/rodauth", "Rodauth") %>
+              </ul>
+            </li>
 
             <li class="menu-section">
               <span class="section-title"><i class="fa-solid fa-link"></i> External Resources</span>
@@ -124,6 +119,7 @@
         </main>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/ruby.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/erb.min.js"></script>
       </turbo-frame>
     <script>
       function updateActiveSidebarLink() {
