@@ -10,7 +10,7 @@ title: Roda project - Getting Started
 [![CI](https://github.com/roda-project/roda-project/actions/workflows/main.yml/badge.svg)](https://github.com/roda-project/roda-project/actions/workflows/main.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-**`roda-project`** is a command-line interface (CLI) that helps you and LLMs quickly build and develop web applications and APIs using <a class="text-a" href="https://roda.jeremyevans.net/" target="_blank">Roda</a>, at any scale.
+**`roda-project` **is a command-line interface (CLI) that helps you and your harness quickly build and develop web applications and APIs using <a class="text-a" href="https://roda.jeremyevans.net/" target="_blank">Roda</a>, at any scale.
 
 #### ✨ Benefits
 - Quick setup customized to your preferences (database, project type, test framework)
