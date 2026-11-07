@@ -66,6 +66,9 @@ pre.dirs {
   margin-block: 1em 1em;
   margin-inline: 0px; }
 
+pre code {
+  font-family: monospace; }
+
 /* Hide standard pre/code combinations before they are styled */
 pre code:not(.hljs) {
   visibility: hidden;
