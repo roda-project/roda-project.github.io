@@ -4,7 +4,7 @@ title: Roda project / Project Structure / api-fullstack
 
 # Project Structure / Fullstack & API
 
-The CLI generates a clean, modular project structure designed for Roda applications, prioritizing speed, maintainability, and clean architecture.
+The CLI generates a clean, modular project structure designed for Roda applications, prioritizing speed and maintainability.
 
 Below is a detailed breakdown of the files and directories in **Fullstack** and **API** project scaffolds.
 
